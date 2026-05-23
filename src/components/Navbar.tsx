@@ -22,7 +22,6 @@ export default function Navbar() {
         return () => window.removeEventListener('resize', onResize)
     }, [])
 
-    // Active section detection via IntersectionObserver
     useEffect(() => {
         const observers: IntersectionObserver[] = []
         sectionIds.forEach(id => {
@@ -52,11 +51,16 @@ export default function Navbar() {
                 transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 style={{
                     position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-                    padding: '1.1rem 2rem', display: 'flex', alignItems: 'center',
-                    justifyContent: 'space-between',
-                    background: scrolled || menuOpen ? 'rgba(3,5,15,0.96)' : 'transparent',
-                    backdropFilter: scrolled || menuOpen ? 'blur(20px)' : 'none',
-                    borderBottom: scrolled || menuOpen ? '1px solid rgba(0,212,255,0.08)' : 'none',
+                    padding: '1rem 2.5rem',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    background: scrolled || menuOpen
+                        ? 'rgba(250, 245, 233, 0.96)'
+                        : 'transparent',
+                    backdropFilter: scrolled || menuOpen ? 'blur(16px)' : 'none',
+                    borderBottom: scrolled || menuOpen
+                        ? '1px solid rgba(139, 80, 40, 0.15)'
+                        : 'none',
+                    boxShadow: scrolled || menuOpen ? '0 2px 20px rgba(92, 51, 23, 0.08)' : 'none',
                     transition: 'all 0.4s ease',
                 }}
             >
@@ -64,9 +68,18 @@ export default function Navbar() {
                 <motion.div
                     whileHover={{ scale: 1.05 }}
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                    style={{ fontFamily: 'var(--font-mono)', fontSize: '1rem', color: 'var(--blue-electric)', cursor: 'pointer', letterSpacing: '0.15em', zIndex: 1 }}
+                    style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: '1.4rem',
+                        fontWeight: 700,
+                        color: 'var(--amber)',
+                        cursor: 'pointer',
+                        letterSpacing: '0.04em',
+                        zIndex: 1,
+                        fontStyle: 'italic',
+                    }}
                 >
-                    {'<MK />'}
+                    MK
                 </motion.div>
 
                 {/* Desktop Links */}
@@ -78,17 +91,23 @@ export default function Navbar() {
                                 key={link}
                                 initial={{ opacity: 0, y: -10 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 * i, duration: 0.4 }}
+                                transition={{ delay: 0.08 * i, duration: 0.4 }}
                                 onClick={() => handleNavClick(link)}
                                 style={{
                                     background: 'none', border: 'none',
-                                    color: isActive ? 'var(--blue-electric)' : 'var(--text-secondary)',
-                                    fontFamily: 'var(--font-mono)', fontSize: '0.78rem',
-                                    letterSpacing: '0.12em', cursor: 'pointer',
-                                    textTransform: 'uppercase', position: 'relative',
+                                    color: isActive 
+                                        ? 'var(--amber)' 
+                                        : (scrolled || menuOpen ? 'var(--text-secondary)' : '#faf5e9'),
+                                    fontFamily: 'var(--font-body)',
+                                    fontSize: '0.85rem',
+                                    fontWeight: isActive ? 600 : 500,
+                                    letterSpacing: '0.03em',
+                                    cursor: 'pointer',
+                                    position: 'relative',
                                     transition: 'color 0.3s ease',
+                                    padding: '0.25rem 0',
                                 }}
-                                whileHover={{ color: '#00d4ff', scale: 1.05 }}
+                                whileHover={{ color: 'var(--amber)' }}
                             >
                                 {link}
                                 {/* Active underline */}
@@ -96,9 +115,9 @@ export default function Navbar() {
                                     <motion.div
                                         layoutId="nav-underline"
                                         style={{
-                                            position: 'absolute', bottom: -4, left: 0, right: 0, height: 1,
-                                            background: 'var(--blue-electric)',
-                                            boxShadow: '0 0 6px var(--blue-electric)',
+                                            position: 'absolute', bottom: -2, left: 0, right: 0, height: 2,
+                                            background: 'var(--amber)',
+                                            borderRadius: '2px',
                                         }}
                                         transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                                     />
@@ -106,6 +125,19 @@ export default function Navbar() {
                             </motion.button>
                         )
                     })}
+
+                    {/* Resume CTA */}
+                    <motion.a
+                        href="/Resume.pdf"
+                        download
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.7 }}
+                        className="btn-primary"
+                        style={{ padding: '0.5rem 1.2rem', fontSize: '0.8rem' }}
+                    >
+                        Resume
+                    </motion.a>
                 </div>
 
                 {/* Mobile Hamburger */}
@@ -115,14 +147,14 @@ export default function Navbar() {
                     style={{
                         display: 'none', background: 'none', border: 'none',
                         cursor: 'pointer', alignItems: 'center', justifyContent: 'center',
-                        color: 'var(--blue-electric)', zIndex: 1, padding: '0.25rem',
+                        color: 'var(--amber)', zIndex: 1, padding: '0.25rem',
                     }}
                     whileTap={{ scale: 0.9 }}
                 >
                     <AnimatePresence mode="wait">
                         {menuOpen
-                            ? <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={22} /></motion.div>
-                            : <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}><Menu size={22} /></motion.div>
+                            ? <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}><X size={24} /></motion.div>
+                            : <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}><Menu size={24} /></motion.div>
                         }
                     </AnimatePresence>
                 </motion.button>
@@ -139,9 +171,9 @@ export default function Navbar() {
                         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                         style={{
                             display: 'none', position: 'fixed', top: '60px', left: 0, right: 0, bottom: 0,
-                            zIndex: 999, background: 'rgba(3,5,15,0.98)', backdropFilter: 'blur(24px)',
+                            zIndex: 999, background: 'rgba(250, 245, 233, 0.98)', backdropFilter: 'blur(20px)',
                             flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-                            gap: '0', borderTop: '1px solid rgba(0,212,255,0.08)',
+                            gap: '0', borderTop: '1px solid var(--border)',
                         }}
                     >
                         {links.map((link, i) => {
@@ -154,28 +186,26 @@ export default function Navbar() {
                                     transition={{ delay: i * 0.06, duration: 0.35 }}
                                     onClick={() => handleNavClick(link)}
                                     style={{
-                                        background: isActive ? 'rgba(0,212,255,0.06)' : 'none',
-                                        border: 'none', width: '100%', padding: '1.1rem 2.5rem',
-                                        color: isActive ? 'var(--blue-electric)' : 'var(--text-secondary)',
-                                        fontFamily: 'var(--font-mono)', fontSize: '0.95rem',
-                                        letterSpacing: '0.2em', cursor: 'pointer',
-                                        textTransform: 'uppercase', textAlign: 'left',
-                                        borderBottom: '1px solid rgba(0,212,255,0.05)',
-                                        borderLeft: isActive ? '2px solid var(--blue-electric)' : '2px solid transparent',
+                                        background: isActive ? 'rgba(200, 118, 42, 0.08)' : 'none',
+                                        border: 'none', width: '100%', padding: '1rem 2.5rem',
+                                        color: isActive ? 'var(--amber)' : 'var(--text-secondary)',
+                                        fontFamily: 'var(--font-body)', fontSize: '1rem',
+                                        fontWeight: isActive ? 600 : 400,
+                                        letterSpacing: '0.05em', cursor: 'pointer',
+                                        textAlign: 'left',
+                                        borderBottom: '1px solid var(--border)',
+                                        borderLeft: isActive ? '3px solid var(--amber)' : '3px solid transparent',
                                         transition: 'all 0.2s',
                                     }}
-                                    whileHover={{ color: 'var(--blue-electric)', backgroundColor: 'rgba(0,212,255,0.04)' }}
+                                    whileHover={{ color: 'var(--amber)', backgroundColor: 'rgba(200, 118, 42, 0.05)' }}
                                     whileTap={{ scale: 0.97 }}
                                 >
-                                    <span style={{ color: 'var(--blue-electric)', marginRight: '0.75rem', fontSize: '0.65rem' }}>0{i + 1}.</span>
                                     {link}
                                 </motion.button>
                             )
                         })}
-                        <div style={{ display: 'flex', gap: '1.5rem', marginTop: '2rem', padding: '1.5rem', justifyContent: 'center' }}>
-                            {[{ label: 'GitHub', href: 'https://github.com/mayank18500' }, { label: 'Email', href: 'mailto:mayank01082005@gmail.com' }].map(({ label, href }) => (
-                                <a key={label} href={href} style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--blue-electric)', textDecoration: 'none', letterSpacing: '0.12em', border: '1px solid rgba(0,212,255,0.25)', padding: '0.5rem 1rem', borderRadius: '4px' }}>{label}</a>
-                            ))}
+                        <div style={{ marginTop: '2rem', padding: '1.5rem' }}>
+                            <a href="/Resume.pdf" download className="btn-primary">Download Resume</a>
                         </div>
                     </motion.div>
                 )}

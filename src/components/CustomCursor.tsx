@@ -63,16 +63,15 @@ export default function CustomCursor() {
                     width: hovering ? 48 : 36,
                     height: hovering ? 48 : 36,
                     borderRadius: '50%',
-                    border: `1.5px solid ${hovering ? 'var(--violet-glow)' : 'var(--blue-electric)'}`,
+                    border: `1.5px solid ${hovering ? 'var(--terracotta)' : 'var(--amber)'}`,
                     transform: 'translate(-50%, -50%)',
                     pointerEvents: 'none',
                     zIndex: 99999,
-                    opacity: clicking ? 0.5 : 0.6,
+                    opacity: clicking ? 0.5 : 0.7,
                     transition: 'width 0.2s, height 0.2s, border-color 0.2s, opacity 0.1s',
                     boxShadow: hovering
-                        ? '0 0 12px rgba(168,85,247,0.4)'
-                        : '0 0 8px rgba(0,212,255,0.3)',
-                    mixBlendMode: 'screen',
+                        ? '0 0 10px rgba(160,82,45,0.4)'
+                        : '0 0 8px rgba(200,118,42,0.3)',
                 }}
             />
             {/* Inner dot — snaps instantly */}
@@ -84,13 +83,12 @@ export default function CustomCursor() {
                     width: clicking ? 3 : 5,
                     height: clicking ? 3 : 5,
                     borderRadius: '50%',
-                    background: hovering ? 'var(--violet-glow)' : 'var(--blue-electric)',
+                    background: hovering ? 'var(--terracotta)' : 'var(--amber)',
                     transform: 'translate(-50%, -50%)',
                     pointerEvents: 'none',
                     zIndex: 99999,
                     transition: 'width 0.1s, height 0.1s, background 0.2s',
-                    boxShadow: `0 0 6px ${hovering ? 'var(--violet-glow)' : 'var(--blue-electric)'}`,
-                    mixBlendMode: 'screen',
+                    boxShadow: `0 0 6px ${hovering ? 'var(--terracotta)' : 'var(--amber)'}`,
                 }}
             />
         </>

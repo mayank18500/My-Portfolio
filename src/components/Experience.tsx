@@ -1,178 +1,192 @@
 import { useRef } from 'react'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { Briefcase, CheckCircle } from 'lucide-react'
-
-const experiences = [
-    {
-        company: 'IQApex Labs',
-        role: 'SDE Intern — Full Stack Developer',
-        period: 'Jan 2026 – Present',
-        location: 'Remote',
-        points: [
-            'Building production-grade full-stack applications using React, Node.js, Express, and PostgreSQL',
-            'Designed and implemented secure REST APIs with JWT authentication and Role-Based Access Control (RBAC)',
-            'Integrated image uploads via Cloudinary and optimized asset delivery pipelines',
-            'Collaborated in agile sprints, participated in code reviews and feature planning sessions',
-            'Deployed containerized services to Render and Vercel with zero-downtime strategies',
-        ],
-        tech: ['React', 'Node.js', 'PostgreSQL', 'JWT', 'RBAC', 'Cloudinary', 'Express'],
-    },
-]
+import { motion, useInView } from 'framer-motion'
 
 export default function Experience() {
     const sectionRef = useRef<HTMLDivElement>(null)
     const inView = useInView(sectionRef, { once: true, margin: '-100px' })
 
-    const { scrollYProgress } = useScroll({
-        target: sectionRef,
-        offset: ['start center', 'end center'],
-    })
-
-    const lineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+    const certs = [
+        { title: 'Full Stack Web Development' },
+        { title: 'React — The Complete Guide' },
+        { title: 'NodeJS, Express & MongoDB' },
+        { title: 'SQL & Database Design' }
+    ]
 
     return (
-        <section id="experience" style={{ padding: '8rem 0', position: 'relative' }}>
+        <section id="experience" style={{
+            padding: '6rem 0',
+            position: 'relative',
+            background: '#ecd8b0',
+            backgroundImage: "url('/Design/d13.svg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            borderBottom: '1px solid rgba(139, 80, 40, 0.15)',
+        }}>
             <div className="section-wrapper" ref={sectionRef}>
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
-                    style={{ marginBottom: '4rem' }}
-                >
-                    <p className="section-label" style={{ marginBottom: '0.75rem' }}>03. experience</p>
-                    <h2 className="heading-lg" style={{
-                        background: 'linear-gradient(135deg, var(--text-primary) 40%, var(--blue-electric))',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                    }}>
-                        Journey
-                    </h2>
-                </motion.div>
 
-                <div className="exp-timeline" style={{ position: 'relative', paddingLeft: '3rem' }}>
-                    {/* SVG Timeline Line */}
-                    <div style={{
-                        position: 'absolute',
-                        left: '0',
-                        top: 0,
-                        width: '2px',
-                        height: '100%',
-                        overflow: 'hidden',
-                    }}>
-                        {/* Background static line */}
-                        <div style={{
-                            position: 'absolute', inset: 0,
-                            background: 'rgba(0,212,255,0.1)',
-                        }} />
-                        {/* Animated progressing line */}
-                        <motion.div
-                            style={{
-                                position: 'absolute',
-                                top: 0, left: 0, right: 0,
-                                height: lineHeight,
-                                background: 'linear-gradient(180deg, var(--blue-electric), var(--violet-glow))',
-                                boxShadow: '0 0 10px var(--blue-electric)',
-                            }}
-                        />
-                    </div>
+                {/* 1:1 Split Grid */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: '1.2fr 1fr',
+                    gap: '4rem',
+                    alignItems: 'start',
+                }} className="about-grid">
 
-                    {/* Timeline dot */}
+                    {/* Left Column: Experience details */}
                     <motion.div
-                        initial={{ scale: 0, opacity: 0 }}
-                        animate={inView ? { scale: 1, opacity: 1 } : {}}
-                        transition={{ delay: 0.4, duration: 0.4 }}
-                        style={{
-                            position: 'absolute',
-                            left: '-8px',
-                            top: '1.5rem',
-                            width: '18px', height: '18px',
-                            borderRadius: '50%',
-                            background: 'var(--blue-electric)',
-                            boxShadow: '0 0 20px var(--blue-electric), 0 0 40px rgba(0,212,255,0.4)',
-                            border: '3px solid var(--bg-primary)',
-                            zIndex: 2,
-                        }}
-                    />
+                        initial={{ opacity: 0, y: 45 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.7, ease: [0.25, 0.8, 0.25, 1] }}
+                    >
+                        <h2 style={{
+                            fontFamily: 'var(--font-display)',
+                            fontSize: '2.8rem',
+                            fontStyle: 'italic',
+                            fontWeight: 900,
+                            color: 'var(--brown-dark)',
+                            marginBottom: '2rem',
+                            borderBottom: '2.5px solid rgba(139, 80, 40, 0.2)',
+                            paddingBottom: '0.5rem',
+                        }}>
+                            Experience
+                        </h2>
 
-                    {experiences.map((exp, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, x: 40, rotateY: 15 }}
-                            animate={inView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
-                            transition={{ delay: 0.3 + i * 0.2, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                            style={{ marginBottom: '3rem', perspective: '1000px' }}
-                        >
-                            <div className="glass-card" style={{ padding: '2rem' }}>
-                                {/* Header */}
-                                <div className="exp-card-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-                                    <div>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                                            <Briefcase size={16} color="var(--blue-electric)" />
-                                            <h3 style={{
-                                                fontFamily: 'var(--font-body)',
-                                                fontSize: '1.3rem',
-                                                fontWeight: 700,
-                                                color: 'var(--text-primary)',
-                                            }}>{exp.role}</h3>
-                                        </div>
-                                        <div style={{
-                                            fontFamily: 'var(--font-mono)',
-                                            fontSize: '0.9rem',
-                                            color: 'var(--blue-electric)',
-                                            marginBottom: '0.25rem',
-                                        }}>{exp.company}</div>
-                                        <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-                                            {exp.location}
-                                        </div>
-                                    </div>
-                                    <div style={{
-                                        padding: '0.35rem 0.875rem',
-                                        border: '1px solid rgba(0,212,255,0.25)',
-                                        borderRadius: '100px',
-                                        fontFamily: 'var(--font-mono)',
-                                        fontSize: '0.72rem',
-                                        color: 'var(--blue-electric)',
-                                        background: 'rgba(0,212,255,0.06)',
-                                        whiteSpace: 'nowrap',
-                                    }}>
-                                        {exp.period}
-                                    </div>
-                                </div>
+                        <div style={{
+                            background: 'rgba(250, 245, 233, 0.85)',
+                            border: '1.5px solid #8b5e3c',
+                            borderRadius: '8px',
+                            padding: '2.5rem',
+                            boxShadow: '0 8px 24px rgba(92, 51, 23, 0.15)',
+                        }}>
+                            <span style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: '0.75rem',
+                                color: 'var(--amber)',
+                                fontWeight: 700,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.12em',
+                                display: 'block',
+                                marginBottom: '0.4rem',
+                            }}>
+                                SDE Intern — Full-Stack Developer
+                            </span>
 
-                                {/* Bullet points */}
-                                <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
-                                    {exp.points.map((point, j) => (
-                                        <motion.li
-                                            key={j}
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={inView ? { opacity: 1, x: 0 } : {}}
-                                            transition={{ delay: 0.6 + j * 0.08, duration: 0.4 }}
-                                            style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}
-                                        >
-                                            <CheckCircle size={14} color="var(--blue-electric)" style={{ marginTop: '2px', flexShrink: 0 }} />
-                                            <span style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.6 }}>{point}</span>
-                                        </motion.li>
-                                    ))}
-                                </ul>
+                            <h3 style={{
+                                fontFamily: 'var(--font-display)',
+                                fontSize: '1.75rem',
+                                color: 'var(--brown-dark)',
+                                fontWeight: 800,
+                                marginBottom: '0.2rem',
+                            }}>
+                                IQApex Labs
+                            </h3>
 
-                                {/* Tech chips */}
-                                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                                    {exp.tech.map(tech => (
-                                        <span key={tech} style={{
-                                            fontFamily: 'var(--font-mono)',
-                                            fontSize: '0.68rem',
-                                            padding: '0.2rem 0.6rem',
-                                            border: '1px solid rgba(124,58,237,0.3)',
-                                            borderRadius: '3px',
-                                            color: 'var(--violet-glow)',
-                                            background: 'rgba(124,58,237,0.06)',
-                                            letterSpacing: '0.05em',
-                                        }}>{tech}</span>
-                                    ))}
-                                </div>
+                            <div style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: '0.7rem',
+                                color: 'var(--text-muted)',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.04em',
+                                marginBottom: '1.5rem',
+                            }}>
+                                Remote · Jan 2026 – May 2026
                             </div>
-                        </motion.div>
-                    ))}
+
+                            <ul style={{
+                                listStyle: 'none',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '1rem',
+                                padding: 0,
+                            }}>
+                                {[
+                                    'Building production-ready services for historic applications using React, Node.js, Express, and PostgreSQL.',
+                                    'Designed and implemented secure REST APIs with JWT authentication and Role-Based Access Control (RBAC).',
+                                    'Optimized heavy database queries and built containerized micro services with Docker.',
+                                    'Collaborated with agile team members to scale robust client-facing platforms.',
+                                    'Implemented automated testing frameworks (Jest and Mocha) to increase test coverage by 40%.',
+                                ].map((point, idx) => (
+                                    <li key={idx} style={{
+                                        display: 'flex',
+                                        gap: '0.75rem',
+                                        alignItems: 'flex-start',
+                                        color: 'var(--text-secondary)',
+                                        fontSize: '0.98rem',
+                                        lineHeight: 1.6,
+                                    }}>
+                                        <span style={{ color: 'var(--amber)', marginTop: '2px' }}>✦</span>
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </motion.div>
+
+                    {/* Right Column: Certification cards */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 45 }}
+                        animate={inView ? { opacity: 1, y: 0 } : {}}
+                        transition={{ duration: 0.7, ease: [0.25, 0.8, 0.25, 1], delay: 0.15 }}
+                    >
+                        <h2 style={{
+                            fontFamily: 'var(--font-display)',
+                            fontSize: '2.8rem',
+                            fontStyle: 'italic',
+                            fontWeight: 900,
+                            color: 'var(--brown-dark)',
+                            marginBottom: '2rem',
+                            borderBottom: '2.5px solid rgba(139, 80, 40, 0.2)',
+                            paddingBottom: '0.5rem',
+                        }}>
+                            Certification
+                        </h2>
+
+                        {/* 2x2 Grid of cert cards */}
+                        <div style={{
+                            display: 'grid',
+                            gridTemplateColumns: '1fr 1fr',
+                            gap: '1.25rem',
+                        }} className="skills-grid">
+                            {certs.map((c, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, y: 30 }}
+                                    animate={inView ? { opacity: 1, y: 0 } : {}}
+                                    transition={{ duration: 0.6, delay: 0.3 + i * 0.12, ease: [0.25, 0.8, 0.25, 1] }}
+                                    whileHover={{ scale: 1.03, y: -4 }}
+                                    style={{
+                                        background: 'rgba(250, 245, 233, 0.9)',
+                                        border: '1.5px solid #8b5e3c',
+                                        borderRadius: '8px',
+                                        overflow: 'hidden',
+                                        boxShadow: '0 6px 18px rgba(92, 51, 23, 0.12)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                    }}
+                                >
+                                    <div style={{ width: '100%', height: '140px', overflow: 'hidden' }}>
+                                        <img
+                                            src="/certificates/-------.png"
+                                            alt={c.title}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        />
+                                    </div>
+                                    <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+                                        <h4 style={{
+                                            fontFamily: 'var(--font-display)',
+                                            fontSize: '0.92rem',
+                                            fontWeight: 800,
+                                            color: 'var(--brown-dark)',
+                                            lineHeight: 1.3,
+                                            margin: 0,
+                                        }}>
+                                            {c.title}
+                                        </h4>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

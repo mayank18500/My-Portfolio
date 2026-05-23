@@ -1,60 +1,13 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Github, Linkedin, Mail, ChevronDown, Download } from 'lucide-react'
-
-const NAME = 'MAYANK KUMAR'
-const CHARS = NAME.split('')
 
 const ROLES = [
     'Full-Stack Developer',
     'MERN Stack Engineer',
     'API Architect',
-    'Backend Builder',
     'React Specialist',
+    'Backend Builder',
 ]
-
-function GlitchLetter({ char, delay }: { char: string; delay: number }) {
-    const [glitching, setGlitching] = useState(false)
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            const interval = setInterval(() => {
-                if (Math.random() > 0.92) {
-                    setGlitching(true)
-                    setTimeout(() => setGlitching(false), 80 + Math.random() * 100)
-                }
-            }, 2000)
-            return () => clearInterval(interval)
-        }, delay * 1000 + 2000)
-        return () => clearTimeout(timeout)
-    }, [delay])
-
-    return (
-        <motion.span
-            initial={{ opacity: 0, y: 60, rotateX: -90 }}
-            animate={{ opacity: 1, y: 0, rotateX: 0 }}
-            transition={{ delay, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            style={{
-                display: 'inline-block',
-                position: 'relative',
-                color: glitching ? 'var(--blue-electric)' : 'var(--text-primary)',
-                textShadow: glitching
-                    ? '2px 0 var(--violet), -2px 0 var(--blue-electric), 0 0 40px var(--blue-electric)'
-                    : '0 0 60px rgba(0,212,255,0.15)',
-                transition: glitching ? 'none' : 'color 0.1s',
-                filter: glitching ? 'brightness(1.6)' : 'none',
-            }}
-        >
-            {char === ' ' ? '\u00A0' : char}
-            {glitching && (
-                <>
-                    <span style={{ position: 'absolute', top: 0, left: '2px', color: 'var(--violet)', opacity: 0.7, animation: 'glitch-1 0.2s steps(1) infinite' }}>{char}</span>
-                    <span style={{ position: 'absolute', top: 0, left: '-2px', color: 'var(--blue-electric)', opacity: 0.7, animation: 'glitch-2 0.2s steps(1) infinite' }}>{char}</span>
-                </>
-            )}
-        </motion.span>
-    )
-}
 
 function TypingText() {
     const [roleIdx, setRoleIdx] = useState(0)
@@ -65,15 +18,15 @@ function TypingText() {
         const target = ROLES[roleIdx]
         if (typing) {
             if (displayed.length < target.length) {
-                const t = setTimeout(() => setDisplayed(target.slice(0, displayed.length + 1)), 60)
+                const t = setTimeout(() => setDisplayed(target.slice(0, displayed.length + 1)), 65)
                 return () => clearTimeout(t)
             } else {
-                const t = setTimeout(() => setTyping(false), 2000)
+                const t = setTimeout(() => setTyping(false), 2200)
                 return () => clearTimeout(t)
             }
         } else {
             if (displayed.length > 0) {
-                const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35)
+                const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 38)
                 return () => clearTimeout(t)
             } else {
                 setRoleIdx(i => (i + 1) % ROLES.length)
@@ -83,12 +36,16 @@ function TypingText() {
     }, [displayed, typing, roleIdx])
 
     return (
-        <span>
-            <span style={{ color: 'var(--violet-glow)' }}>{displayed}</span>
+        <span style={{ color: '#d4b874', fontWeight: 600 }}>
+            {displayed}
             <motion.span
                 animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                style={{ display: 'inline-block', width: 2, height: '1.1em', background: 'var(--blue-electric)', marginLeft: 2, verticalAlign: 'text-bottom' }}
+                transition={{ duration: 0.9, repeat: Infinity }}
+                style={{
+                    display: 'inline-block', width: 2, height: '1em',
+                    background: '#d4b874', marginLeft: 5,
+                    verticalAlign: 'text-bottom', borderRadius: 1,
+                }}
             />
         </span>
     )
@@ -103,134 +60,420 @@ export default function Hero() {
         return () => window.removeEventListener('mousemove', handleMouse)
     }, [])
 
-    const bgX = (mousePos.x / window.innerWidth - 0.5) * 30
-    const bgY = (mousePos.y / window.innerHeight - 0.5) * 20
+    const bgX = (mousePos.x / (window.innerWidth || 1) - 0.5) * 12
+    const bgY = (mousePos.y / (window.innerHeight || 1) - 0.5) * 8
 
     return (
         <section
             id="home"
+            className="hero-library-bg"
             style={{
                 minHeight: '100vh',
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
                 position: 'relative',
                 overflow: 'hidden',
-                paddingTop: '5rem',
+                padding: '6rem 2rem 0rem',
             }}
         >
-            {/* Animated background orbs */}
-            <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0 }}>
-                <motion.div
-                    animate={{ x: bgX * 1.5, y: bgY * 1.5, scale: [1, 1.1, 1] }}
-                    transition={{ scale: { duration: 4, repeat: Infinity, ease: 'easeInOut' } }}
-                    style={{ position: 'absolute', top: '10%', left: '15%', width: '500px', height: '500px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(0,102,255,0.12) 0%, transparent 70%)', filter: 'blur(40px)' }}
-                />
-                <motion.div
-                    animate={{ x: bgX * -1.2, y: bgY * -1.2 }}
-                    style={{ position: 'absolute', bottom: '15%', right: '10%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(124,58,237,0.1) 0%, transparent 70%)', filter: 'blur(40px)' }}
-                />
-                <div className="grid-bg" style={{ position: 'absolute', inset: 0, opacity: 0.6 }} />
+            {/* Hanging scroll at the top-left */}
+            <div style={{
+                position: 'absolute',
+                top: -300,
+                left: '0%',
+                width: '130px',
+                height: '290px',
+                zIndex: 4,
+                pointerEvents: 'none',
+            }}>
+                <img src="/Design/d7.svg" alt="Hanging Scroll" style={{ width: '400%', height: '400%', objectFit: 'contain' }} />
             </div>
 
-            {/* Scanline */}
-            <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none', zIndex: 1 }}>
+            {/* Bottom-left rolled scroll */}
+            <div style={{
+                position: 'absolute',
+                bottom: '-25px',
+                left: '-15px',
+                width: '190px',
+                height: '190px',
+                zIndex: 4,
+                pointerEvents: 'none',
+                transform: 'rotate(12deg)',
+            }}>
+                <img src="/Design/d7.svg" alt="Rolled Scroll" style={{ width: '400%', height: '400%', objectFit: 'contain' }} />
+            </div>
+
+            {/* Bottom-right rolled scroll */}
+            <div style={{
+                position: 'absolute',
+                bottom: '-25px',
+                right: '-15px',
+                width: '190px',
+                height: '190px',
+                zIndex: 4,
+                pointerEvents: 'none',
+                transform: 'rotate(-12deg) scaleX(-1)',
+            }}>
+                <img src="/Design/d7.svg" alt="Rolled Scroll" style={{ width: '400%', height: '400%', objectFit: 'contain' }} />
+            </div>
+
+            {/* Ambient warm lighting */}
+            <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', zIndex: 0, pointerEvents: 'none' }}>
                 <motion.div
-                    animate={{ y: ['0%', '100vh'] }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'linear', repeatDelay: 3 }}
-                    style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, rgba(0,212,255,0.3), transparent)' }}
+                    animate={{ x: bgX * 1.5, y: bgY * 1.5 }}
+                    style={{
+                        position: 'absolute', top: '10%', left: '20%',
+                        width: '450px', height: '450px', borderRadius: '50%',
+                        background: 'radial-gradient(circle, rgba(212,160,23,0.15) 0%, transparent 75%)',
+                        filter: 'blur(60px)',
+                    }}
+                />
+                <motion.div
+                    animate={{ x: bgX * -1, y: bgY * -1 }}
+                    style={{
+                        position: 'absolute', bottom: '10%', right: '15%',
+                        width: '380px', height: '380px', borderRadius: '50%',
+                        background: 'radial-gradient(circle, rgba(200,118,42,0.1) 0%, transparent 70%)',
+                        filter: 'blur(50px)',
+                    }}
                 />
             </div>
 
-            {/* Content */}
-            <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '1100px', padding: '0 2rem' }}>
-                {/* Status badge */}
+            {/* Content Container */}
+            <div style={{
+                position: 'relative',
+                zIndex: 2,
+                maxWidth: '1200px',
+                width: '100%',
+                display: 'grid',
+                gridTemplateColumns: '1fr 1.2fr',
+                gap: '4rem',
+                alignItems: 'center',
+            }} className="featured-project-grid">
+
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
+                    initial={{ opacity: 0, x: -50 }}
+                    animate={{ opacity: 1, y: bgY * 0.5, x: bgX * 0.5 }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     style={{
-                        display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                        marginBottom: '2rem', padding: '0.4rem 1.2rem',
-                        border: '1px solid rgba(0,212,255,0.25)', borderRadius: '100px',
-                        background: 'rgba(0,212,255,0.05)', fontFamily: 'var(--font-mono)',
-                        fontSize: '0.72rem', color: 'var(--blue-electric)', letterSpacing: '0.15em',
+                        position: 'relative',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'flex-end',
+                        width: '100%',
+                        minHeight: '440px',
                     }}
                 >
-                    <span style={{ width: 7, height: 7, borderRadius: '50%', background: '#00ff88', animation: 'pulse-glow 2s ease-in-out infinite', boxShadow: '0 0 8px #00ff88' }} />
-                    AVAILABLE FOR OPPORTUNITIES
-                </motion.div>
+                    {/* User profile image */}
+                    <div style={{
+                        position: 'relative',
+                        width: '100%',
+                        maxWidth: '380px',
+                        height: '420px',
+                        zIndex: 5,
+                    }}>
+                        <img
+                            src="/My_Photos/photo8.png"
+                            alt="Mayank Kumar"
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'contain',
+                            }}
+                        />
+                    </div>
 
-                {/* Name glitch */}
-                <div style={{ fontFamily: 'var(--font-display)', fontSize: 'clamp(3.5rem, 12vw, 9.5rem)', lineHeight: 0.92, letterSpacing: '0.03em', marginBottom: '0.5rem', perspective: '600px' }}>
-                    {CHARS.map((char, i) => <GlitchLetter key={i} char={char} delay={0.05 * i + 0.4} />)}
-                </div>
-
-                {/* Role tagline with typewriter */}
-                <motion.div
-                    initial={{ opacity: 0, filter: 'blur(20px)', y: 30 }}
-                    animate={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
-                    transition={{ delay: 1.4, duration: 0.9, ease: 'easeOut' }}
-                    style={{
-                        fontFamily: 'var(--font-mono)', fontSize: 'clamp(0.9rem, 2.5vw, 1.3rem)',
-                        color: 'var(--text-secondary)', letterSpacing: '0.2em',
-                        textTransform: 'uppercase', marginBottom: '0.75rem',
-                        minHeight: '2rem',
-                    }}
-                >
-                    <span style={{ color: 'var(--blue-electric)' }}>SDE Intern</span>
-                    {' · '}
-                    <TypingText />
-                </motion.div>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.8, duration: 0.6 }}
-                    style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-mono)', fontSize: '0.82rem', letterSpacing: '0.1em', marginBottom: '3rem' }}
-                >
-                    {'// '}2nd-year IT student @ IQApex Labs · Kolkata, India
-                </motion.p>
-
-                {/* CTA Buttons */}
-                <motion.div
-                    className="hero-ctas"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2.0, duration: 0.6 }}
-                    style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}
-                >
-                    <a href="https://github.com/mayank18500" target="_blank" rel="noreferrer" className="btn-primary">
-                        <Github size={16} /> GitHub
-                    </a>
-                    <a href="https://linkedin.com/in/mayank-kumar" target="_blank" rel="noreferrer" className="btn-secondary">
-                        <Linkedin size={16} /> LinkedIn
-                    </a>
-                    <a href="mailto:mayank01082005@gmail.com" className="btn-secondary">
-                        <Mail size={16} /> Email Me
-                    </a>
-                    {/* Resume download */}
-                    <a href="/resume.pdf" download="Mayank_Kumar_Resume.pdf" className="btn-secondary"
-                        style={{ borderColor: 'rgba(16,185,129,0.4)', color: '#10b981', background: 'rgba(16,185,129,0.08)' }}
+                    {/* Emblem 1: Blue Express (d4.svg) */}
+                    <motion.div
+                        animate={{
+                            y: [0, -12, 0],
+                            rotate: [0, 3, 0]
+                        }}
+                        transition={{
+                            duration: 5,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        style={{
+                            position: 'absolute',
+                            top: '25%',
+                            left: '-10%',
+                            width: '100px',
+                            height: '100px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            zIndex: 1,
+                            pointerEvents: 'none',
+                        }}
                     >
-                        <Download size={16} /> Resume
-                    </a>
-                </motion.div>
+                        <img
+                            src="/Design/d4.svg"
+                            alt="Blue Express"
+                            style={{
+                                width: '360%',
+                                height: '360%',
+                                objectFit: 'contain',
+                                filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))'
+                            }}
+                        />
+                    </motion.div>
 
-                {/* Scroll indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2.5, duration: 0.6 }}
-                    style={{ position: 'absolute', bottom: '-5rem', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}
-                >
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: 'var(--text-muted)', letterSpacing: '0.2em' }}>SCROLL</span>
-                    <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
-                        <ChevronDown size={18} color="var(--blue-electric)" />
+                    {/* Emblem 2: Green MongoDB (d5.svg) */}
+                    <motion.div
+                        animate={{
+                            y: [0, -15, 0],
+                            rotate: [0, -4, 0]
+                        }}
+                        transition={{
+                            duration: 6,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 0.5
+                        }}
+                        style={{
+                            position: 'absolute',
+                            top: '-10%',
+                            left: '33%',
+                            width: '100px',
+                            height: '100px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            zIndex: 1,
+                            pointerEvents: 'none',
+                        }}
+                    >
+                        <img
+                            src="/Design/d5.svg"
+                            alt="Green MongoDB"
+                            style={{
+                                width: '360%',
+                                height: '360%',
+                                objectFit: 'contain',
+                                filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))'
+                            }}
+                        />
+                    </motion.div>
+
+                    {/* Emblem 3: Blue React Alternate (d6.svg) */}
+                    <motion.div
+                        animate={{
+                            y: [0, -10, 0],
+                            rotate: [0, 5, 0]
+                        }}
+                        transition={{
+                            duration: 5.5,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 1
+                        }}
+                        style={{
+                            position: 'absolute',
+                            top: '-5%',
+                            right: '33%',
+                            width: '100px',
+                            height: '100px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            zIndex: 1,
+                            pointerEvents: 'none',
+                        }}
+                    >
+                        <img
+                            src="/Design/d6.svg"
+                            alt="Tech Emblem"
+                            style={{
+                                width: '360%',
+                                height: '360%',
+                                objectFit: 'contain',
+                                filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))'
+                            }}
+                        />
+                    </motion.div>
+
+                    {/* Emblem 4: Node (d9.svg) */}
+                    <motion.div
+                        animate={{
+                            y: [0, -14, 0],
+                            rotate: [0, -3, 0]
+                        }}
+                        transition={{
+                            duration: 4.8,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 0.2
+                        }}
+                        style={{
+                            position: 'absolute',
+                            top: '35%',
+                            right: '-10%',
+                            width: '100px',
+                            height: '100px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            zIndex: 1,
+                            pointerEvents: 'none',
+                        }}
+                    >
+                        <img
+                            src="/Design/d9.svg"
+                            alt="Tech Emblem"
+                            style={{
+                                width: '360%',
+                                height: '360%',
+                                objectFit: 'contain',
+                                filter: 'drop-shadow(0 8px 16px rgba(0,0,0,0.4))'
+                            }}
+                        />
                     </motion.div>
                 </motion.div>
+
+                {/* Right Column: Title, Name, Cursive fonts, Scroll Buttons */}
+                <motion.div
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.15 }}
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        paddingBottom: '4rem',
+                    }}
+                >
+                    <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.9rem',
+                        letterSpacing: '0.4em',
+                        color: '#d4b874',
+                        marginBottom: '0.5rem',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                    }}>
+                        PORTFOLIO
+                    </span>
+
+                    <h1 style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
+                        fontWeight: 900,
+                        color: '#faf5e9',
+                        lineHeight: 0.9,
+                        margin: 0,
+                    }}>
+                        Mayank
+                    </h1>
+
+                    <h1 style={{
+                        fontFamily: 'var(--font-display)',
+                        fontSize: 'clamp(3.5rem, 7vw, 6.5rem)',
+                        fontWeight: 900,
+                        color: '#d4b874',
+                        lineHeight: 0.9,
+                        marginBottom: '1.5rem',
+                    }}>
+                        Kumar
+                    </h1>
+
+                    {/* Integrated Dynamic Typing Tagline Block */}
+                    <div style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '1.1rem',
+                        color: '#b8a07c',
+                        letterSpacing: '0.05em',
+                        marginBottom: '2.5rem',
+                        minHeight: '2rem',
+                    }}>
+                        SDE Intern @ IQApex Labs · <TypingText />
+                    </div>
+
+                    {/* Parchment scroll style CTA buttons */}
+                    <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }} className="hero-ctas">
+                        <a
+                            href="/Resume.pdf"
+                            download="Mayank_Kumar_Resume.pdf"
+                            className="hero-parchment-btn"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '220px',
+                                height: '70px',
+                                background: "url('/Design/d11.svg') no-repeat center",
+                                backgroundSize: '400% 400%',
+                                fontFamily: 'var(--font-display)',
+                                fontSize: '1.1rem',
+                                fontWeight: 800,
+                                color: '#2c1810',
+                                textDecoration: 'none',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.08em',
+                                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.35))',
+                                cursor: 'pointer',
+                                borderRadius: '4px',
+                                transition: 'all 0.3s ease',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.filter = 'drop-shadow(0 0 18px rgba(212,184,116,0.75))';
+                                e.currentTarget.style.transform = 'translateY(-5px) scale(1.02)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.filter = 'drop-shadow(0 4px 8px rgba(0,0,0,0.35))';
+                                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                            }}
+                        >
+                            RESUME
+                        </a>
+                        <a
+                            href="mailto:mayank01082005@gmail.com"
+                            className="hero-parchment-btn"
+                            style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                width: '220px',
+                                height: '70px',
+                                background: "url('/Design/d11.svg') no-repeat center",
+                                backgroundSize: '400% 400%',
+                                fontFamily: 'var(--font-display)',
+                                fontSize: '1.1rem',
+                                fontWeight: 800,
+                                color: '#2c1810',
+                                textDecoration: 'none',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.08em',
+                                filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.35))',
+                                cursor: 'pointer',
+                                borderRadius: '4px',
+                                transition: 'all 0.3s ease',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.filter = 'drop-shadow(0 0 18px rgba(212,184,116,0.75))';
+                                e.currentTarget.style.transform = 'translateY(-5px) scale(1.02)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.filter = 'drop-shadow(0 4px 8px rgba(0,0,0,0.35))';
+                                e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                            }}
+                        >
+                            EMAIL ME
+                        </a>
+                    </div>
+                </motion.div>
             </div>
+
+            {/* Bottom border roll ornament style */}
+            <div style={{
+                position: 'absolute',
+                bottom: 0,
+                left: 0,
+                right: 0,
+                height: '24px',
+                zIndex: 3,
+            }} />
         </section>
     )
 }

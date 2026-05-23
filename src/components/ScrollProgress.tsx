@@ -15,10 +15,10 @@ export default function ScrollProgress() {
                 height: '2px',
                 scaleX,
                 transformOrigin: '0%',
-                background: 'linear-gradient(90deg, var(--blue-electric), var(--violet-glow), var(--blue-electric))',
+                background: 'linear-gradient(90deg, var(--amber), var(--terracotta), var(--amber))',
                 backgroundSize: '200% 100%',
                 zIndex: 10000,
-                boxShadow: '0 0 8px var(--blue-electric), 0 0 16px rgba(0,212,255,0.3)',
+                boxShadow: '0 0 6px rgba(200,118,42,0.5)',
             }}
         />
     )

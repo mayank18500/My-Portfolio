@@ -17,7 +17,7 @@ export default function ParticleFooter() {
     const particlesRef = useRef<Particle[]>([])
     const animFrameRef = useRef<number>(0)
 
-    const COLORS = ['#00d4ff', '#7c3aed', '#06b6d4', '#a855f7', '#0066ff']
+    const COLORS = ['#c8762a', '#a0522d', '#b8860b', '#5a6e3a', '#8b5e3c']
 
     const initParticles = useCallback((canvas: HTMLCanvasElement) => {
         const count = Math.floor((canvas.width * canvas.height) / 12000)
@@ -119,8 +119,8 @@ export default function ParticleFooter() {
         <footer style={{
             position: 'relative',
             overflow: 'hidden',
-            borderTop: '1px solid rgba(0,212,255,0.08)',
-            background: 'var(--bg-secondary)',
+            borderTop: '1px solid var(--border)',
+            background: 'linear-gradient(180deg, #e8d5ad 0%, #d4b886 100%)',
         }}>
             <canvas
                 ref={canvasRef}
@@ -143,13 +143,14 @@ export default function ParticleFooter() {
             }}>
                 {/* Logo */}
                 <div style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '1.5rem',
-                    color: 'var(--blue-electric)',
-                    letterSpacing: '0.15em',
-                    textShadow: '0 0 20px rgba(0,212,255,0.4)',
+                    fontFamily: 'var(--font-display)',
+                    fontSize: '2rem',
+                    color: 'var(--amber)',
+                    letterSpacing: '0.05em',
+                    fontWeight: 700,
+                    fontStyle: 'italic',
                 }}>
-                    {'<MK />'}
+                    Mayank Kumar
                 </div>
 
                 {/* Socials */}
@@ -171,21 +172,23 @@ export default function ParticleFooter() {
                                 border: '1px solid var(--border)',
                                 borderRadius: '6px',
                                 color: 'var(--text-muted)',
-                                background: 'rgba(0,0,0,0.3)',
+                                background: 'rgba(250, 245, 233, 0.6)',
                                 transition: 'all 0.3s ease',
                                 backdropFilter: 'blur(8px)',
                             }}
                             onMouseEnter={e => {
                                 const el = e.currentTarget as HTMLAnchorElement
-                                el.style.borderColor = 'var(--blue-electric)'
-                                el.style.color = 'var(--blue-electric)'
-                                el.style.boxShadow = '0 0 15px rgba(0,212,255,0.25)'
+                                el.style.borderColor = 'var(--amber)'
+                                el.style.color = 'var(--amber)'
+                                el.style.boxShadow = '0 0 12px rgba(200,118,42,0.25)'
+                                el.style.background = 'rgba(200,118,42,0.08)'
                             }}
                             onMouseLeave={e => {
                                 const el = e.currentTarget as HTMLAnchorElement
                                 el.style.borderColor = 'var(--border)'
                                 el.style.color = 'var(--text-muted)'
                                 el.style.boxShadow = 'none'
+                                el.style.background = 'rgba(250, 245, 233, 0.6)'
                             }}
                         >
                             <Icon size={18} />
@@ -206,7 +209,7 @@ export default function ParticleFooter() {
                     lineHeight: 1.7,
                 }}>
                     <span>Designed & Built by </span>
-                    <span style={{ color: 'var(--blue-electric)' }}>Mayank Kumar</span>
+                    <span style={{ color: 'var(--amber)', fontWeight: 600 }}>Mayank Kumar</span>
                     <br />
                     <span>© {new Date().getFullYear()} · Kolkata, India</span>
                 </div>
