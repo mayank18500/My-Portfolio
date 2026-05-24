@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import { ExternalLink, Github, Terminal, ShieldCheck, Database, Layers } from 'lucide-react'
 
 const projects = [
     {
@@ -65,7 +65,7 @@ export default function Projects() {
                     </h2>
                 </motion.div>
 
-                {/* Horizontal screenshots row */}
+                {/* Horizontal engineering highlights row */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -73,25 +73,76 @@ export default function Projects() {
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(4, 1fr)',
-                        gap: '1rem',
+                        gap: '1.25rem',
                         marginBottom: '4rem',
                     }}
                     className="skills-grid"
                 >
                     {[
-                        { title: 'Cruz & Garcia Clinic', desc: 'Oral Health Care', img: '/Design/d8.svg' },
-                        { title: 'Dental Care Care', desc: 'Part of Self-Care', img: '/Design/d11.svg' },
-                        { title: 'Book an Online Booking', desc: 'Trust & Safety', img: '/Design/d13.svg' },
-                        { title: 'Specialist dentist', desc: 'Dentistry solutions', img: '/Design/d11.svg' }
+                        { title: 'Robust Backends', desc: 'Secure REST APIs & Services', Icon: Terminal, color: '#c8762a' },
+                        { title: 'Secured Systems', desc: 'JWT, RBAC & Protection', Icon: ShieldCheck, color: '#a0522d' },
+                        { title: 'Optimized Queries', desc: 'PostgreSQL & MongoDB scaling', Icon: Database, color: '#5a6e3a' },
+                        { title: 'Modern Interfaces', desc: 'React, GSAP & Fluid UI UX', Icon: Layers, color: '#3d7a6a' }
                     ].map((c, i) => (
                         <div key={i} style={{
                             border: '1.5px solid #8b5e3c',
                             borderRadius: '8px',
-                            overflow: 'hidden',
-                            boxShadow: '0 4px 14px rgba(92,51,23,0.1)',
-                            background: '#fff',
-                        }}>
-                            <img src={c.img} alt={c.title} style={{ width: '100%', height: '180px', objectFit: 'cover' }} />
+                            padding: '1.5rem',
+                            boxShadow: '0 4px 14px rgba(92,51,23,0.08)',
+                            background: 'rgba(250, 245, 233, 0.75)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            gap: '0.75rem',
+                            transition: 'all 0.3s ease',
+                            cursor: 'default',
+                        }}
+                        onMouseEnter={e => {
+                            const el = e.currentTarget as HTMLDivElement
+                            el.style.transform = 'translateY(-4px)'
+                            el.style.borderColor = c.color
+                            el.style.boxShadow = '0 8px 24px rgba(92,51,23,0.12)'
+                            el.style.background = '#fff'
+                        }}
+                        onMouseLeave={e => {
+                            const el = e.currentTarget as HTMLDivElement
+                            el.style.transform = 'translateY(0)'
+                            el.style.borderColor = '#8b5e3c'
+                            el.style.boxShadow = '0 4px 14px rgba(92,51,23,0.08)'
+                            el.style.background = 'rgba(250, 245, 233, 0.75)'
+                        }}
+                        >
+                            <div style={{
+                                width: '42px',
+                                height: '42px',
+                                borderRadius: '6px',
+                                background: `${c.color}15`,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: c.color,
+                            }}>
+                                <c.Icon size={20} />
+                            </div>
+                            <div>
+                                <h4 style={{
+                                    fontFamily: 'var(--font-display)',
+                                    fontSize: '1.1rem',
+                                    fontWeight: 800,
+                                    color: 'var(--brown-dark)',
+                                    marginBottom: '0.25rem',
+                                }}>
+                                    {c.title}
+                               </h4>
+                                <p style={{
+                                    fontFamily: 'var(--font-body)',
+                                    fontSize: '0.78rem',
+                                    color: 'var(--text-muted)',
+                                    lineHeight: 1.4,
+                                }}>
+                                    {c.desc}
+                                </p>
+                            </div>
                         </div>
                     ))}
                 </motion.div>

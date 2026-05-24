@@ -208,7 +208,7 @@ body::before {
   transform: scaleX(1);
 }
 
-.btn-primary > * {
+.btn-primary>* {
   position: relative;
   z-index: 1;
 }
@@ -261,39 +261,87 @@ body::before {
 
 /* ─── ANIMATIONS ─── */
 @keyframes float-gentle {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-8px) rotate(1.5deg); }
-  66% { transform: translateY(-4px) rotate(-1deg); }
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  33% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
 }
 
 @keyframes float-orb {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes orbit-spin {
-  from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+  }
 }
 
 @keyframes warm-pulse {
-  0%, 100% { opacity: 0.5; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.08); }
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes marquee-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes shimmer-warm {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* ─── MARQUEE STRIP ─── */
@@ -317,68 +365,171 @@ body::before {
 
 /* ─── RESPONSIVE — TABLET (≤900px) ─── */
 @media (max-width: 900px) {
-  .section-wrapper { padding: 0 1.5rem; }
-  .about-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
-  .heading-xl { font-size: clamp(3rem, 13vw, 6rem); }
-  .heading-lg { font-size: clamp(1.8rem, 6.5vw, 3rem); }
-  .contact-two-col { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  .exp-cert-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .section-wrapper {
+    padding: 0 1.5rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  .heading-xl {
+    font-size: clamp(3rem, 13vw, 6rem);
+  }
+
+  .heading-lg {
+    font-size: clamp(1.8rem, 6.5vw, 3rem);
+  }
+
+  .contact-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .exp-cert-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
 
 /* ─── RESPONSIVE — MOBILE (≤768px) ─── */
 @media (max-width: 768px) {
-  .nav-desktop-links { display: none !important; }
-  .nav-mobile-btn { display: flex !important; }
-  .nav-mobile-menu { display: flex !important; }
+  .nav-desktop-links {
+    display: none !important;
+  }
 
-  section { padding: 5rem 0 !important; }
-  .section-wrapper { padding: 0 1.25rem; }
+  .nav-mobile-btn {
+    display: flex !important;
+  }
 
-  .about-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
-  .projects-grid { grid-template-columns: 1fr !important; }
-  .hero-ctas { flex-direction: column !important; align-items: center !important; }
-  .hero-ctas a, .hero-ctas button { width: 100%; max-width: 260px; justify-content: center; }
-  .contact-two-col { grid-template-columns: 1fr !important; }
-  .achievements-grid { grid-template-columns: 1fr !important; }
-  .exp-timeline { padding-left: 1.75rem !important; }
-  .exp-card-header { flex-direction: column !important; align-items: flex-start !important; }
-  .cert-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .nav-mobile-menu {
+    display: flex !important;
+  }
 
-  .heading-xl { font-size: clamp(2.5rem, 15vw, 4.5rem) !important; line-height: 0.95 !important; }
-  .heading-lg { font-size: clamp(1.6rem, 8.5vw, 2.6rem) !important; }
+  section {
+    padding: 5rem 0 !important;
+  }
+
+  .section-wrapper {
+    padding: 0 1.25rem;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-ctas {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .hero-ctas a,
+  .hero-ctas button {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+
+  .contact-two-col {
+    grid-template-columns: 1fr !important;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .exp-timeline {
+    padding-left: 1.75rem !important;
+  }
+
+  .exp-card-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .heading-xl {
+    font-size: clamp(2.5rem, 15vw, 4.5rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  .heading-lg {
+    font-size: clamp(1.6rem, 8.5vw, 2.6rem) !important;
+  }
 }
 
 /* ─── RESPONSIVE — SMALL MOBILE (≤480px) ─── */
 @media (max-width: 480px) {
-  .section-wrapper { padding: 0 1rem; }
-  .btn-primary, .btn-secondary { padding: 0.7rem 1.25rem; font-size: 0.82rem; }
-  .skills-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .cert-grid { grid-template-columns: 1fr !important; }
+  .section-wrapper {
+    padding: 0 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.82rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .cert-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* ─── CUSTOM CURSOR — desktop ─── */
 @media (pointer: fine) {
-  *, *::before, *::after { cursor: none !important; }
+
+  *,
+  *::before,
+  *::after {
+    cursor: none !important;
+  }
 }
 
 /* ─── CONTACT RESPONSIVE ─── */
 @media (max-width: 900px) {
-  .contact-two-col { grid-template-columns: 1fr !important; gap: 2rem !important; }
+  .contact-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
 }
 
 @media (max-width: 768px) {
-  .contact-two-col { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-  .contact-two-col form > div:first-child { grid-template-columns: 1fr !important; }
-  .featured-project-grid { grid-template-columns: 1fr !important; }
+  .contact-two-col {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .contact-two-col form>div:first-child {
+    grid-template-columns: 1fr !important;
+  }
+
+  .featured-project-grid {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 /* ─── MOCKUP EXTRA STYLING & UTILITIES ─── */
 .hero-library-bg {
   position: relative;
-  background-image: linear-gradient(rgba(26, 30, 36, 0.75), rgba(26, 30, 36, 0.9)), url('/Design/d8.svg');
+  background-color: #0b0f16 !important;
+  background-image: linear-gradient(rgba(20, 28, 38, 0.25), rgba(20, 28, 38, 0.65)), url('/Design/d8.svg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed !important;
   color: #faf5e9 !important;
 }
 
@@ -405,7 +556,8 @@ body::before {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-.parchment-scroll-btn::before, .parchment-scroll-btn::after {
+.parchment-scroll-btn::before,
+.parchment-scroll-btn::after {
   content: '';
   position: absolute;
   width: 4px;
@@ -416,8 +568,13 @@ body::before {
   transition: all 0.3s ease;
 }
 
-.parchment-scroll-btn::before { left: -6px; }
-.parchment-scroll-btn::after { right: -6px; }
+.parchment-scroll-btn::before {
+  left: -6px;
+}
+
+.parchment-scroll-btn::after {
+  right: -6px;
+}
 
 .parchment-scroll-btn:hover {
   transform: translateY(-2px);
@@ -438,7 +595,8 @@ body::before {
   overflow: hidden;
 }
 
-.scroll-container::before, .scroll-container::after {
+.scroll-container::before,
+.scroll-container::after {
   content: '';
   position: absolute;
   left: 0;
@@ -470,7 +628,8 @@ body::before {
 }
 
 /* Smooth parchment section transitions at section edges */
-.split-white-section::before, .split-white-section::after {
+.split-white-section::before,
+.split-white-section::after {
   content: '';
   position: absolute;
   left: 0;
@@ -479,10 +638,12 @@ body::before {
   pointer-events: none;
   z-index: 2;
 }
+
 .split-white-section::before {
   top: 0;
   background: linear-gradient(180deg, rgba(250, 245, 233, 0.05) 0%, transparent 100%);
 }
+
 .split-white-section::after {
   bottom: 0;
   background: linear-gradient(0deg, rgba(250, 245, 233, 0.05) 0%, transparent 100%);
@@ -506,23 +667,51 @@ body::before {
 
 /* Floating Rune-Style Keyframes */
 @keyframes floatRune1 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(-12px) rotate(-1.5deg) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(-1.5deg) scale(1.02);
+  }
 }
 
 @keyframes floatRune2 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(12px) rotate(1.5deg) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(12px) rotate(1.5deg) scale(1.02);
+  }
 }
 
 @keyframes floatRune3 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(-10px) rotate(2deg) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(2deg) scale(1.02);
+  }
 }
 
 @keyframes floatRune4 {
-  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
-  50% { transform: translateY(10px) rotate(-2deg) scale(1.02); }
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: translateY(10px) rotate(-2deg) scale(1.02);
+  }
 }
 
 /* floating tech classes */
@@ -556,14 +745,19 @@ body::before {
 
 /* Hero premium action button styling */
 .hero-parchment-btn {
-  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+  outline: none !important;
+  background-color: transparent !important;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.35)) !important;
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), filter 0.35s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
 }
 
 .hero-parchment-btn:hover {
-  transform: scale(1.05) translateY(-3px) !important;
-  filter: drop-shadow(0 8px 16px rgba(44, 24, 16, 0.4)) !important;
-  box-shadow: 0 0 20px rgba(236, 211, 167, 0.6) !important;
+  transform: scale(1.06) translateY(-5px) !important;
+  filter: drop-shadow(0 10px 20px rgba(44, 24, 16, 0.45)) drop-shadow(0 0 16px rgba(212, 184, 116, 0.75)) !important;
+  box-shadow: none !important;
 }
 
 /* Scroll continuity divider */
@@ -574,4 +768,375 @@ body::before {
   height: 40px;
   z-index: 10;
   pointer-events: none;
+}
+
+/* ─────────────────────────────────────────
+   HERO RESPONSIVE SYSTEM
+   ───────────────────────────────────────── */
+
+/* Centered & stacked on tablet/mobile, left-aligned on desktop */
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Base styles for the corner scrolls */
+.hero-corner-scroll-top {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  z-index: 4;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hero-corner-scroll-bottom-l {
+  position: absolute;
+  bottom: -300px;
+  left: -45px;
+  width: 500px;
+  height: 500px;
+  z-index: 4;
+  pointer-events: none;
+  transform: rotate(10deg);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hero-corner-scroll-bottom-r {
+  position: absolute;
+  bottom: -300px;
+  right: -45px;
+  width: 500px;
+  height: 500px;
+  z-index: 4;
+  pointer-events: none;
+  transform: rotate(-10deg) scaleX(-1);
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hero portals columns */
+.hero-portal-col {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  min-height: 520px;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.celestial-portal-container {
+  position: relative;
+  width: 520px;
+  height: 520px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.portal-rune {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 6;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.portal-rune-1 {
+  top: -100px;
+  left: -100px;
+}
+
+.portal-rune-2 {
+  bottom: -100px;
+  left: -100px;
+}
+
+.portal-rune-3 {
+  top: -100px;
+  right: -100px;
+}
+
+.portal-rune-4 {
+  bottom: -125px;
+  right: -125px;
+}
+
+/* ─── RESPONSIVE BREAKPOINTS ─── */
+
+@media (max-width: 1200px) {
+  .hero-portal-col {
+    min-height: 440px;
+  }
+
+  .celestial-portal-container {
+    width: 440px;
+    height: 440px;
+  }
+
+  .portal-rune {
+    width: 290px;
+    height: 290px;
+  }
+
+  .portal-rune-1 {
+    top: -85px;
+    left: -85px;
+  }
+
+  .portal-rune-2 {
+    bottom: -85px;
+    left: -85px;
+  }
+
+  .portal-rune-3 {
+    top: -85px;
+    right: -85px;
+  }
+
+  .portal-rune-4 {
+    bottom: -105px;
+    right: -105px;
+  }
+
+  .hero-corner-scroll-top {
+    width: 380px;
+    height: 380px;
+    top: -40px;
+  }
+
+  .hero-corner-scroll-bottom-l {
+    width: 380px;
+    height: 380px;
+    bottom: -230px;
+  }
+
+  .hero-corner-scroll-bottom-r {
+    width: 380px;
+    height: 380px;
+    bottom: -230px;
+  }
+}
+
+@media (max-width: 968px) {
+  .hero-library-bg {
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+    padding: 3.5rem 1rem 0.5rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-size: 100% 100% !important;
+    /* Stretch SVG exactly to fill the entire mobile/tablet view without cropping */
+  }
+
+  .featured-project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  .hero-text-col {
+    align-items: center;
+    text-align: center;
+    padding-bottom: 0 !important;
+    margin-top: 0.5rem;
+  }
+
+  .hero-ctas {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.0rem !important;
+    width: 100% !important;
+  }
+
+  .hero-portal-col {
+    min-height: 340px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .celestial-portal-container {
+    width: 340px;
+    height: 340px;
+    margin: 0 auto;
+  }
+
+  .portal-rune {
+    width: 220px;
+    height: 220px;
+  }
+
+  .portal-rune-1 {
+    top: -60px;
+    left: -60px;
+  }
+
+  .portal-rune-2 {
+    bottom: -60px;
+    left: -60px;
+  }
+
+  .portal-rune-3 {
+    top: -60px;
+    right: -60px;
+  }
+
+  .portal-rune-4 {
+    bottom: -75px;
+    right: -75px;
+  }
+
+  .hero-corner-scroll-top {
+    width: 250px;
+    height: 250px;
+    top: -25px;
+  }
+
+  .hero-corner-scroll-bottom-l {
+    width: 250px;
+    height: 250px;
+    bottom: -140px;
+  }
+
+  .hero-corner-scroll-bottom-r {
+    width: 250px;
+    height: 250px;
+    bottom: -140px;
+  }
+
+  /* Force first and last name to render side-by-side in a single line on mobile/tablet viewports */
+  .hero-name-container {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.38em !important;
+    margin-bottom: 0.6rem !important;
+  }
+
+  /* Apply responsive scaling to first and last name font size */
+  .hero-name-container div {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-library-bg {
+    padding: 2.2rem 0.5rem 0.5rem !important;
+  }
+
+  .hero-portal-col {
+    min-height: 165px !important;
+  }
+
+  .celestial-portal-container {
+    width: 165px !important;
+    height: 165px !important;
+  }
+
+  .portal-rune {
+    width: 115px !important;
+    height: 115px !important;
+  }
+
+  .portal-rune-1 {
+    top: -30px;
+    left: -30px;
+  }
+
+  .portal-rune-2 {
+    bottom: -30px;
+    left: -30px;
+  }
+
+  .portal-rune-3 {
+    top: -30px;
+    right: -30px;
+  }
+
+  .portal-rune-4 {
+    bottom: -40px;
+    right: -40px;
+  }
+
+  .hero-corner-scroll-top {
+    width: 110px !important;
+    height: 110px !important;
+    top: -10px !important;
+  }
+
+  .hero-corner-scroll-bottom-l,
+  .hero-corner-scroll-bottom-r {
+    display: none !important;
+    /* Hide corner scrolls on mobile to maximize page height and avoid scroll triggers */
+  }
+
+  /* Compress tagline and spacing to fit screen comfortably */
+  .hero-tagline {
+    margin-bottom: 1rem !important;
+    font-size: 0.82rem !important;
+    min-height: 1.8rem !important;
+  }
+
+  /* Responsive font sizes for name letters to keep "Mayank Kumar" perfectly in a single line */
+  .name-letter {
+    font-size: 1.65rem !important;
+  }
+
+  /* Side-by-side buttons on mobile to save critical vertical height */
+  .hero-ctas {
+    gap: 0.5rem !important;
+  }
+
+  .hero-parchment-btn {
+    width: 132px !important;
+    height: 44px !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.05em !important;
+  }
+}
+
+@media (max-width: 365px) {
+  .name-letter {
+    font-size: 1.35rem !important;
+  }
+
+  .hero-ctas {
+    gap: 0.35rem !important;
+  }
+
+  .hero-parchment-btn {
+    width: 118px !important;
+    height: 40px !important;
+    font-size: 0.72rem !important;
+  }
 }

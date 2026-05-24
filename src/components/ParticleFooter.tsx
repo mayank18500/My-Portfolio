@@ -11,13 +11,13 @@ interface Particle {
     color: string
 }
 
+const COLORS = ['#c8762a', '#a0522d', '#b8860b', '#5a6e3a', '#8b5e3c']
+
 export default function ParticleFooter() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const mouseRef = useRef({ x: 0, y: 0 })
     const particlesRef = useRef<Particle[]>([])
     const animFrameRef = useRef<number>(0)
-
-    const COLORS = ['#c8762a', '#a0522d', '#b8860b', '#5a6e3a', '#8b5e3c']
 
     const initParticles = useCallback((canvas: HTMLCanvasElement) => {
         const count = Math.floor((canvas.width * canvas.height) / 12000)

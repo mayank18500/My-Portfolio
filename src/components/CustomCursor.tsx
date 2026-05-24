@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 
 export default function CustomCursor() {
     const [pos, setPos] = useState({ x: -100, y: -100 })

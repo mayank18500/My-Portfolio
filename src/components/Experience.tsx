@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { Award } from 'lucide-react'
 
 export default function Experience() {
     const sectionRef = useRef<HTMLDivElement>(null)
@@ -164,12 +165,41 @@ export default function Experience() {
                                         flexDirection: 'column',
                                     }}
                                 >
-                                    <div style={{ width: '100%', height: '140px', overflow: 'hidden' }}>
-                                        <img
-                                            src="/certificates/-------.png"
-                                            alt={c.title}
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                        />
+                                    <div style={{
+                                        width: '100%',
+                                        height: '130px',
+                                        background: 'linear-gradient(135deg, #f5e3b5 0%, #ecd59f 50%, #d8b874 100%)',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        borderBottom: '1.5px solid #8b5e3c',
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                    }}>
+                                        {/* Golden glowing ornament ring */}
+                                        <div style={{
+                                            position: 'absolute',
+                                            width: '70px',
+                                            height: '70px',
+                                            borderRadius: '50%',
+                                            border: '1px dashed rgba(139, 80, 40, 0.45)',
+                                            animation: 'orbit-spin 20s linear infinite',
+                                            opacity: 0.6,
+                                        }} />
+                                        <Award size={36} color="var(--terracotta)" style={{ filter: 'drop-shadow(0 2px 4px rgba(92,51,23,0.2))', zIndex: 1 }} />
+                                        <span style={{
+                                            fontFamily: 'var(--font-mono)',
+                                            fontSize: '0.62rem',
+                                            color: 'var(--brown-dark)',
+                                            letterSpacing: '0.15em',
+                                            textTransform: 'uppercase',
+                                            marginTop: '0.5rem',
+                                            fontWeight: 700,
+                                            zIndex: 1,
+                                        }}>
+                                            VERIFIED CREDENTIAL
+                                        </span>
                                     </div>
                                     <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                         <h4 style={{

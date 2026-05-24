@@ -65,7 +65,7 @@ export default function Contact() {
         }}>
             <div className="section-wrapper" ref={ref}>
 
-                {/* Scroll Wrapper */}
+                Scroll Wrapper
                 <div className="scroll-container about-grid" style={{
                     display: 'grid',
                     gridTemplateColumns: '1fr 1.3fr',
@@ -80,10 +80,10 @@ export default function Contact() {
                         transition={{ duration: 0.7 }}
                         style={{ display: 'flex', justifyContent: 'center', width: '100%', overflow: 'visible' }}
                     >
-                        <div style={{ 
-                            position: 'relative', 
-                            width: '100%', 
-                            maxWidth: '380px', 
+                        <div style={{
+                            position: 'relative',
+                            width: '100%',
+                            maxWidth: '380px',
                             aspectRatio: '380/460',
                             margin: '0 auto 2rem',
                         }}>
@@ -157,13 +157,13 @@ export default function Contact() {
                                     placeholder="Name"
                                     required
                                     style={inputStyle}
-                                    onFocus={e => { 
-                                        e.target.style.borderColor = 'var(--amber)'; 
+                                    onFocus={e => {
+                                        e.target.style.borderColor = 'var(--amber)';
                                         e.target.style.background = '#fff';
                                         e.target.style.boxShadow = '0 0 12px rgba(200, 118, 42, 0.35)';
                                     }}
-                                    onBlur={e => { 
-                                        e.target.style.borderColor = '#8b5e3c'; 
+                                    onBlur={e => {
+                                        e.target.style.borderColor = '#8b5e3c';
                                         e.target.style.background = '#fcf4db';
                                         e.target.style.boxShadow = 'none';
                                     }}
@@ -179,13 +179,13 @@ export default function Contact() {
                                     placeholder="Email"
                                     required
                                     style={inputStyle}
-                                    onFocus={e => { 
-                                        e.target.style.borderColor = 'var(--amber)'; 
+                                    onFocus={e => {
+                                        e.target.style.borderColor = 'var(--amber)';
                                         e.target.style.background = '#fff';
                                         e.target.style.boxShadow = '0 0 12px rgba(200, 118, 42, 0.35)';
                                     }}
-                                    onBlur={e => { 
-                                        e.target.style.borderColor = '#8b5e3c'; 
+                                    onBlur={e => {
+                                        e.target.style.borderColor = '#8b5e3c';
                                         e.target.style.background = '#fcf4db';
                                         e.target.style.boxShadow = 'none';
                                     }}
@@ -201,13 +201,13 @@ export default function Contact() {
                                     rows={4}
                                     required
                                     style={{ ...inputStyle, resize: 'vertical', minHeight: '110px' }}
-                                    onFocus={e => { 
-                                        e.target.style.borderColor = 'var(--amber)'; 
+                                    onFocus={e => {
+                                        e.target.style.borderColor = 'var(--amber)';
                                         e.target.style.background = '#fff';
                                         e.target.style.boxShadow = '0 0 12px rgba(200, 118, 42, 0.35)';
                                     }}
-                                    onBlur={e => { 
-                                        e.target.style.borderColor = '#8b5e3c'; 
+                                    onBlur={e => {
+                                        e.target.style.borderColor = '#8b5e3c';
                                         e.target.style.background = '#fcf4db';
                                         e.target.style.boxShadow = 'none';
                                     }}
