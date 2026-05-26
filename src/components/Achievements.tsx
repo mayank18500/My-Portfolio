@@ -15,7 +15,7 @@ const achievements = [
     {
         icon: '💻',
         title: 'Web Dev & APIs Specialist',
-        desc: 'Built robust backend APIs, optimized SQL queries, and scaled client-facing web applications at IQApex Labs.',
+        desc: 'Built robust backend APIs, optimized SQL queries, and scaled client-facing web applications at IQVenus Technologies.',
     },
     {
         icon: '🌐',

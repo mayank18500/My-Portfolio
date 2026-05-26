@@ -156,7 +156,7 @@ const letterAnim = {
 } as const
 
 const ROLES = [
-    'Ex SDE Intern @ IQApex Labs',
+    'SDE Intern @ IQVenus Technologies',
     'FullStack Developer',
     'MERN Stack Engineer',
     'React & Node Specialist',

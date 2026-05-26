@@ -374,6 +374,10 @@ body::before {
     gap: 2.5rem !important;
   }
 
+  .split-col-card {
+    padding: 1.75rem !important;
+  }
+
   .heading-xl {
     font-size: clamp(3rem, 13vw, 6rem);
   }
@@ -418,6 +422,35 @@ body::before {
   .about-grid {
     grid-template-columns: 1fr !important;
     gap: 2rem !important;
+  }
+
+  .split-col-card {
+    padding: 1.25rem !important;
+  }
+
+  .code-editor-body {
+    padding: 1rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Custom high-end scrollbar for mobile IDE scrolling */
+  .code-editor-body::-webkit-scrollbar {
+    height: 4px !important;
+  }
+
+  .code-editor-body::-webkit-scrollbar-track {
+    background: #150f0b !important;
+  }
+
+  .code-editor-body::-webkit-scrollbar-thumb {
+    background: rgba(200, 118, 42, 0.4) !important;
+    border-radius: 2px !important;
+  }
+
+  .marquee-item {
+    font-size: 0.9rem !important;
+    padding: 0.3rem 1rem !important;
   }
 
   .projects-grid {
@@ -466,6 +499,7 @@ body::before {
     font-size: clamp(1.6rem, 8.5vw, 2.6rem) !important;
   }
 }
+
 
 /* ─── RESPONSIVE — SMALL MOBILE (≤480px) ─── */
 @media (max-width: 480px) {
@@ -1138,5 +1172,103 @@ body::before {
     width: 118px !important;
     height: 40px !important;
     font-size: 0.72rem !important;
+  }
+}
+
+/* ─── ALCHEMICAL GRIMOIRE KEYFRAMES ─── */
+@keyframes float-ember {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.65;
+  }
+  50% {
+    transform: translateY(-150px) translateX(15px) scale(1.1) rotate(45deg);
+    opacity: 0.4;
+  }
+  85% {
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(-320px) translateX(-15px) scale(0.7) rotate(90deg);
+    opacity: 0;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-gold-glow {
+  0%, 100% {
+    box-shadow: 0 0 6px rgba(200, 118, 42, 0.35), inset 0 0 4px rgba(212, 160, 23, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 14px rgba(200, 118, 42, 0.7), inset 0 0 8px rgba(212, 160, 23, 0.4);
+  }
+}
+
+.alchemical-ember {
+  will-change: transform, opacity;
+}
+
+/* ─── ALCHEMICAL RESPONSIFICATION ─── */
+.about-section-container {
+  background-color: #faf5e9 !important;
+  background-image: url('/Design/d13.svg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+.about-portrait-card {
+  padding: 3rem 2rem !important;
+}
+
+.about-details-card {
+  padding: 2.5rem !important;
+}
+
+.about-narrative-text {
+  text-align: justify;
+  font-size: 1.02rem;
+}
+
+.about-tabs-container {
+  display: flex !important;
+  flex-direction: row !important;
+}
+
+@media (max-width: 768px) {
+  .about-section-container {
+    background-image: none !important; /* Optimize mobile loading by removing heavy 2.5MB background SVG */
+  }
+  .astral-rings-container {
+    display: none !important; /* Hide floating gear SVGs on mobile for neat portrait alignment */
+  }
+  .about-portrait-card {
+    padding: 1.75rem 1.25rem !important; /* Reduce padding on mobile to optimize portrait area */
+  }
+  .about-details-card {
+    padding: 1.5rem 1.25rem !important; /* Narrow card spacing to fit text and grids beautifully */
+  }
+  .about-tabs-container {
+    flex-direction: column !important; /* Stack ledger tab options vertically on mobile */
+    gap: 0.35rem !important;
+  }
+  .about-tabs-container button {
+    flex: 1 1 100% !important; /* Let tabs take full width on stack */
+    padding: 0.65rem 0.5rem !important;
+    font-size: 0.85rem !important;
+  }
+  .about-narrative-text {
+    text-align: left !important; /* Prevent river-gaps inside narrow justified text blocks */
+    font-size: 0.95rem !important; /* Fit sentences elegantly on standard mobile sizes */
   }
 }
