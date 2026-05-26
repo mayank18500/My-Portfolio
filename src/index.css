@@ -1222,9 +1222,6 @@ body::before {
 /* ─── ALCHEMICAL RESPONSIFICATION ─── */
 .about-section-container {
   background-color: #faf5e9 !important;
-  background-image: url('/Design/d13.svg') !important;
-  background-size: cover !important;
-  background-position: center !important;
 }
 
 .about-portrait-card {
@@ -1270,5 +1267,58 @@ body::before {
   .about-narrative-text {
     text-align: left !important; /* Prevent river-gaps inside narrow justified text blocks */
     font-size: 0.95rem !important; /* Fit sentences elegantly on standard mobile sizes */
+  }
+}
+
+/* ─── ARCANE PROJECTS CAROUSEL & MODAL ─── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 1.5rem 0.5rem;
+}
+
+.carousel-card-wrapper {
+  scroll-snap-align: start;
+  flex: 0 0 380px;
+}
+
+@media (max-width: 768px) {
+  .carousel-card-wrapper {
+    flex: 0 0 88%;
+  }
+  .carousel-track {
+    gap: 1.25rem;
+  }
+}
+
+/* Responsive four-column grid helper for achievements and projects highlights */
+.responsive-four-column-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 992px) {
+  .responsive-four-column-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.25rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .responsive-four-column-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
   }
 }

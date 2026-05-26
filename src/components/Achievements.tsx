@@ -53,12 +53,8 @@ export default function Achievements() {
                     </h2>
                 </motion.div>
 
-                {/* 4-column layout */}
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
-                    gap: '2rem',
-                }} className="skills-grid">
+                {/* Responsive 4-column achievements grid */}
+                <div className="responsive-four-column-grid">
                     {achievements.map((ach, i) => (
                         <motion.div
                             key={i}

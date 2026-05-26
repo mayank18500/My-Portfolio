@@ -98,6 +98,9 @@ export default function Contact() {
                 padding: '6.5rem 0',
                 position: 'relative',
                 borderBottom: '1px solid rgba(139, 80, 40, 0.15)',
+                backgroundImage: "url('/Design/d13.svg')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
             }}
         >
             {/* Ambient gold glow */}
