@@ -119,10 +119,21 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                         border: '3px solid var(--brown-dark)',
                         overflow: 'hidden',
                         boxShadow: '0 8px 24px rgba(44,24,16,0.25)',
-                        background: '#000',
+                        background: 'linear-gradient(135deg, #faf5e9 0%, #ecd8b0 50%, #d4b07a 100%)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        padding: '0.75rem',
                     }}
                 >
-                    <img src="/Design/d9.svg" alt="Mockup 1" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ width: '60%', height: '6px', background: 'var(--amber)', borderRadius: '3px', opacity: 0.6 }} />
+                    <div style={{ width: '80%', height: '4px', background: 'var(--border-strong)', borderRadius: '2px', opacity: 0.4 }} />
+                    <div style={{ width: '50%', height: '4px', background: 'var(--border-strong)', borderRadius: '2px', opacity: 0.3 }} />
+                    <div style={{ width: '40px', height: '40px', borderRadius: '50%', border: '2px solid var(--amber)', opacity: 0.5, marginTop: '0.5rem' }} />
+                    <div style={{ width: '70%', height: '3px', background: 'var(--border)', borderRadius: '2px', opacity: 0.4 }} />
+                    <div style={{ width: '55%', height: '3px', background: 'var(--border)', borderRadius: '2px', opacity: 0.3 }} />
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, y: 30, rotate: 2 }}
@@ -136,10 +147,20 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                         border: '3px solid var(--brown-dark)',
                         overflow: 'hidden',
                         boxShadow: '0 8px 24px rgba(44,24,16,0.25)',
-                        background: '#000',
+                        background: 'linear-gradient(135deg, #f5e3b5 0%, #dcc48e 50%, #c8a060 100%)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '0.5rem',
+                        padding: '0.75rem',
                     }}
                 >
-                    <img src="/Design/d10.svg" alt="Mockup 2" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                    <div style={{ width: '80%', height: '5px', background: 'var(--amber)', borderRadius: '3px', opacity: 0.5 }} />
+                    <div style={{ width: '90%', height: '50px', borderRadius: '6px', border: '1.5px solid var(--border-strong)', opacity: 0.35 }} />
+                    <div style={{ width: '65%', height: '3px', background: 'var(--border)', borderRadius: '2px', opacity: 0.4 }} />
+                    <div style={{ width: '75%', height: '3px', background: 'var(--border)', borderRadius: '2px', opacity: 0.3 }} />
+                    <div style={{ width: '45%', height: '3px', background: 'var(--border)', borderRadius: '2px', opacity: 0.25 }} />
                 </motion.div>
             </div>
         )

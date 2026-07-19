@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Preloader from './components/Preloader'
 import CustomCursor from './components/CustomCursor'
 import ScrollProgress from './components/ScrollProgress'
+import BurningCandle from './components/BurningCandle'
 
 // Lazy load heavy sections below the fold
 const About = lazy(() => import('./components/About'))
@@ -33,6 +34,7 @@ export default function App() {
       <Preloader />
       <CustomCursor />
       <ScrollProgress />
+      <BurningCandle />
       <Navbar />
       <main>
         <Hero />

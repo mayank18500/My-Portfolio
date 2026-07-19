@@ -1322,3 +1322,757 @@ body::before {
     gap: 1rem !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   BURNING CANDLE — Fixed Side Element
+═══════════════════════════════════════════ */
+
+.candle-fixture {
+  position: fixed;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+  cursor: pointer;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+  transition: filter 0.3s ease;
+}
+
+.candle-fixture:hover {
+  filter: drop-shadow(0 4px 16px rgba(200, 118, 42, 0.5));
+}
+
+.candle-fixture:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 8px;
+  border-radius: 4px;
+}
+
+/* Tooltip */
+.candle-tooltip {
+  position: absolute;
+  left: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(44, 24, 16, 0.92);
+  color: #f5e3b5;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 0.85rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: tooltipFadeIn 0.6s ease forwards, tooltipFadeOut 0.6s ease 3.4s forwards;
+  border: 1px solid rgba(200, 118, 42, 0.35);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+.candle-tooltip-arrow {
+  position: absolute;
+  left: -5px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  background: rgba(44, 24, 16, 0.92);
+  border-left: 1px solid rgba(200, 118, 42, 0.35);
+  border-bottom: 1px solid rgba(200, 118, 42, 0.35);
+}
+
+@keyframes tooltipFadeIn {
+  from { opacity: 0; transform: translateY(-50%) translateX(8px); }
+  to   { opacity: 1; transform: translateY(-50%) translateX(0); }
+}
+
+@keyframes tooltipFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; pointer-events: none; }
+}
+
+/* Assembly container */
+.candle-assembly {
+  position: relative;
+  width: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ─── WALL GLOW ─── */
+.candle-wall-glow {
+  position: fixed;
+  left: 0;
+  top: 30%;
+  width: 140px;
+  height: 300px;
+  background: radial-gradient(ellipse at left center, rgba(255, 170, 50, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 9997;
+  animation: wallGlowPulse 3s ease-in-out infinite;
+}
+
+@keyframes wallGlowPulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+/* ─── SMOKE ─── */
+.candle-smoke-container {
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 80px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.candle-smoke-container.smoke-visible {
+  opacity: 1;
+}
+
+.candle-smoke {
+  position: absolute;
+  bottom: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(180, 165, 140, 0.6) 0%, rgba(180, 165, 140, 0) 70%);
+}
+
+.candle-smoke-1 {
+  width: 8px;
+  height: 8px;
+  left: 11px;
+  animation: smokeRise 2.2s ease-out infinite;
+}
+
+.candle-smoke-2 {
+  width: 10px;
+  height: 10px;
+  left: 8px;
+  animation: smokeRise 2.5s ease-out infinite 0.3s;
+}
+
+.candle-smoke-3 {
+  width: 6px;
+  height: 6px;
+  left: 14px;
+  animation: smokeRise 2s ease-out infinite 0.7s;
+}
+
+@keyframes smokeRise {
+  0% {
+    opacity: 0.7;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translateY(-35px) translateX(6px) scale(2.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-70px) translateX(-4px) scale(4);
+  }
+}
+
+/* ─── FLAME ─── */
+.candle-flame-container {
+  position: relative;
+  width: 20px;
+  height: 38px;
+  margin-bottom: -3px;
+  z-index: 2;
+  opacity: 0;
+  transform: scaleY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.candle-flame-container.flame-active {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+.candle-flame-container.flame-dying {
+  animation: flameDie 0.6s ease forwards;
+}
+
+@keyframes flameDie {
+  0%   { opacity: 1; transform: scaleY(1) scaleX(1); }
+  30%  { opacity: 0.9; transform: scaleY(1.3) scaleX(0.7); }
+  60%  { opacity: 0.4; transform: scaleY(0.5) scaleX(1.5); }
+  100% { opacity: 0; transform: scaleY(0) scaleX(0.2); }
+}
+
+.candle-flame-glow {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 180, 50, 0.35) 0%, rgba(255, 120, 20, 0.1) 40%, transparent 70%);
+  animation: flameGlowPulse 1.5s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes flameGlowPulse {
+  0%   { transform: translate(-50%, -50%) scale(0.9); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.candle-flame {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  transform-origin: bottom center;
+}
+
+.candle-flame-outer {
+  width: 14px;
+  height: 32px;
+  margin-left: -7px;
+  background: linear-gradient(0deg, #ff8c00 0%, #ff6600 30%, #ff4500 60%, rgba(255, 69, 0, 0.3) 100%);
+  animation: flameFlicker 0.15s ease-in-out infinite alternate,
+             flameSway 2.5s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.candle-flame-mid {
+  width: 10px;
+  height: 26px;
+  margin-left: -5px;
+  background: linear-gradient(0deg, #ffcc33 0%, #ffaa00 40%, #ff8800 80%, rgba(255, 136, 0, 0.2) 100%);
+  animation: flameFlicker 0.12s ease-in-out infinite alternate,
+             flameSway 2s ease-in-out infinite 0.5s;
+  opacity: 0.95;
+}
+
+.candle-flame-inner {
+  width: 5px;
+  height: 16px;
+  margin-left: -2.5px;
+  background: linear-gradient(0deg, #fffbe6 0%, #ffee88 40%, #ffcc33 100%);
+  animation: flameFlicker 0.1s ease-in-out infinite alternate,
+             flameSway 1.8s ease-in-out infinite 0.2s;
+}
+
+@keyframes flameFlicker {
+  0%   { transform: scaleX(1) scaleY(1); }
+  100% { transform: scaleX(0.92) scaleY(1.04); }
+}
+
+@keyframes flameSway {
+  0%, 100% { transform: rotate(0deg) translateX(0); }
+  25%      { transform: rotate(1.5deg) translateX(0.5px); }
+  50%      { transform: rotate(-1deg) translateX(-0.5px); }
+  75%      { transform: rotate(2deg) translateX(0.3px); }
+}
+
+/* Tiny floating embers */
+.candle-ember {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #ffd700;
+  pointer-events: none;
+}
+
+.candle-ember-1 {
+  left: 8px;
+  bottom: 20px;
+  animation: emberFloat 2s ease-out infinite;
+}
+
+.candle-ember-2 {
+  left: 12px;
+  bottom: 24px;
+  animation: emberFloat 2.4s ease-out infinite 0.5s;
+}
+
+.candle-ember-3 {
+  left: 6px;
+  bottom: 18px;
+  animation: emberFloat 1.8s ease-out infinite 1s;
+}
+
+@keyframes emberFloat {
+  0%   { opacity: 1; transform: translateY(0) translateX(0); }
+  50%  { opacity: 0.6; transform: translateY(-20px) translateX(4px); }
+  100% { opacity: 0; transform: translateY(-40px) translateX(-2px); }
+}
+
+/* ─── WICK ─── */
+.candle-wick {
+  width: 1.5px;
+  height: 10px;
+  background: linear-gradient(180deg, #1a1008 0%, #3d2b15 50%, #2c1810 100%);
+  border-radius: 0.5px;
+  position: relative;
+  z-index: 1;
+}
+
+.candle-lit .candle-wick::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #ff6600;
+  box-shadow: 0 0 4px 1px rgba(255, 102, 0, 0.6);
+  animation: wickGlow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes wickGlow {
+  0%   { box-shadow: 0 0 3px 1px rgba(255, 102, 0, 0.5); }
+  100% { box-shadow: 0 0 6px 2px rgba(255, 140, 0, 0.8); }
+}
+
+/* ─── WAX BODY ─── */
+.candle-wax-body {
+  width: 22px;
+  height: 70px;
+  background: linear-gradient(180deg,
+    #fdf6e3 0%,
+    #f5e6c8 15%,
+    #ede0b8 50%,
+    #e8d5a0 80%,
+    #dcc48e 100%
+  );
+  border-radius: 3px 3px 2px 2px;
+  position: relative;
+  box-shadow: inset -2px 0 4px rgba(139, 94, 60, 0.15),
+              inset 2px 0 4px rgba(255, 255, 255, 0.3);
+  overflow: visible;
+}
+
+/* Melted wax pool at the top */
+.candle-wax-pool {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  height: 6px;
+  background: radial-gradient(ellipse at center, rgba(255, 200, 100, 0.5) 0%, rgba(237, 224, 184, 0.8) 60%, #ede0b8 100%);
+  border-radius: 50%;
+}
+
+.candle-lit .candle-wax-pool {
+  animation: poolGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes poolGlow {
+  0%   { background: radial-gradient(ellipse at center, rgba(255, 200, 100, 0.5) 0%, rgba(237, 224, 184, 0.8) 60%, #ede0b8 100%); }
+  100% { background: radial-gradient(ellipse at center, rgba(255, 210, 120, 0.7) 0%, rgba(245, 230, 200, 0.9) 60%, #f0e5c5 100%); }
+}
+
+/* Wax drips */
+.candle-drip {
+  position: absolute;
+  background: linear-gradient(180deg, #f0e5c5, #e8d5a0);
+  border-radius: 0 0 50% 50%;
+}
+
+.candle-drip-1 {
+  right: -1px;
+  top: 16px;
+  width: 5px;
+  height: 14px;
+  animation: dripFlow 6s ease-in-out infinite;
+}
+
+.candle-drip-2 {
+  left: 0;
+  top: 28px;
+  width: 4px;
+  height: 10px;
+  animation: dripFlow 8s ease-in-out infinite 2s;
+}
+
+.candle-drip-3 {
+  right: 2px;
+  top: 42px;
+  width: 3px;
+  height: 8px;
+  animation: dripFlow 7s ease-in-out infinite 4s;
+}
+
+@keyframes dripFlow {
+  0%, 100% { height: 8px; opacity: 0.8; }
+  50%      { height: 16px; opacity: 1; }
+}
+
+/* ─── BRASS HOLDER ─── */
+.candle-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -1px;
+}
+
+.candle-holder-rim {
+  width: 30px;
+  height: 4px;
+  background: linear-gradient(180deg, #c9a84c, #a07830, #8b6914);
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.candle-holder-base {
+  width: 26px;
+  height: 8px;
+  background: linear-gradient(180deg, #a07830, #8b6914, #7a5c10);
+  border-radius: 0 0 3px 3px;
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+}
+
+.candle-holder-saucer {
+  width: 40px;
+  height: 5px;
+  background: linear-gradient(180deg, #b8962e, #a07830, #8b6914);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+  margin-top: -1px;
+}
+
+/* ─── CANDLE RESPONSIVE ─── */
+@media (max-width: 768px) {
+  .candle-fixture {
+    left: 8px;
+    top: auto;
+    bottom: 20px;
+    transform: translateY(0) scale(0.85);
+  }
+
+  .candle-tooltip {
+    left: auto;
+    right: calc(100% + 10px);
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .candle-tooltip-arrow {
+    left: auto;
+    right: -5px;
+    border-left: none;
+    border-bottom: none;
+    border-right: 1px solid rgba(200, 118, 42, 0.35);
+    border-top: 1px solid rgba(200, 118, 42, 0.35);
+  }
+}
+
+@media (max-width: 480px) {
+  .candle-fixture {
+    left: 6px;
+    bottom: 16px;
+    transform: translateY(0) scale(0.75);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════
+   DARK THEME — Dark Magic / Violet Sorcery
+   Triggered by .dark-theme on <html>
+═══════════════════════════════════════════════════ */
+
+html.dark-theme {
+  /* Backgrounds — deep violet-black */
+  --bg-parchment: #0a0812;
+  --bg-cream: #0d0a16;
+  --bg-warm: #110e1a;
+  --bg-card: rgba(16, 12, 26, 0.94);
+  --bg-card-dark: #14102a;
+  --bg-deep: #06050c;
+
+  /* Accents — mystic violet replacing amber */
+  --amber: #a855f4;
+  --amber-light: #c084fc;
+  --amber-glow: rgba(168, 85, 244, 0.25);
+  --amber-pale: rgba(168, 85, 244, 0.08);
+  --terracotta: #9333ea;
+  --terracotta-light: #b45cf6;
+  --brown-dark: #f0e6ff;
+  --brown-mid: #7c3aed;
+  --brown-light: #a78bfa;
+  --gold: #c084fc;
+  --gold-light: #d8b4fe;
+  --warm-green: #86efac;
+  --warm-teal: #67e8f9;
+
+  /* Typography — bright white/lavender for maximum readability */
+  --text-primary: #f1eaff;
+  --text-secondary: #d4c6f0;
+  --text-muted: #9b8cc0;
+  --text-light: #6b5a8e;
+
+  /* Borders — violet-tinted */
+  --border: rgba(168, 85, 244, 0.15);
+  --border-strong: rgba(168, 85, 244, 0.35);
+  --border-amber: rgba(168, 85, 244, 0.4);
+
+  /* Shadows — deep purple glows */
+  --shadow-warm: 0 4px 24px rgba(88, 28, 180, 0.25);
+  --shadow-warm-lg: 0 8px 48px rgba(88, 28, 180, 0.35);
+  --shadow-amber: 0 0 20px rgba(168, 85, 244, 0.2);
+
+  color-scheme: dark;
+}
+
+/* Body transition for smooth theme switch */
+body {
+  transition: background-color 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+              color 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Override body background in dark mode */
+html.dark-theme body {
+  background-color: #0d0a16;
+  color: #f1eaff;
+}
+
+/* Parchment texture overlay in dark mode — subtle violet noise */
+html.dark-theme body::before {
+  opacity: 0.1;
+  mix-blend-mode: overlay;
+  filter: hue-rotate(260deg);
+}
+
+/* Selection in dark mode */
+html.dark-theme ::selection {
+  background: #a855f4;
+  color: #0d0a16;
+}
+
+/* Scrollbar dark */
+html.dark-theme {
+  scrollbar-color: #7c3aed #0d0a16;
+}
+
+html.dark-theme::-webkit-scrollbar-track {
+  background: #0d0a16;
+}
+
+html.dark-theme::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+}
+
+/* Hero dark overrides */
+html.dark-theme .hero-library-bg {
+  background-color: #060412 !important;
+  background-image: linear-gradient(rgba(8, 4, 20, 0.8), rgba(10, 6, 24, 0.9)), url('/Design/d8.svg') !important;
+}
+
+/* Section divider dark — violet glow line */
+html.dark-theme .section-divider {
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 244, 0.3), rgba(168, 85, 244, 0.6), rgba(168, 85, 244, 0.3), transparent);
+}
+
+html.dark-theme .section-divider::after {
+  background: var(--bg-cream);
+  color: #a855f4;
+}
+
+/* Split white sections go dark violet */
+html.dark-theme .split-white-section {
+  background: #0f0c1e !important;
+  border-top-color: rgba(168, 85, 244, 0.1);
+  border-bottom-color: rgba(168, 85, 244, 0.1);
+  box-shadow: inset 0 24px 36px -24px rgba(88, 28, 180, 0.15),
+              inset 0 -24px 36px -24px rgba(88, 28, 180, 0.15);
+}
+
+html.dark-theme .split-col-card {
+  background: #12102a;
+  border-color: rgba(168, 85, 244, 0.12);
+  box-shadow: 0 4px 20px rgba(88, 28, 180, 0.15);
+}
+
+html.dark-theme .split-col-card:hover {
+  box-shadow: 0 8px 32px rgba(88, 28, 180, 0.25);
+  border-color: rgba(168, 85, 244, 0.25);
+}
+
+/* Scroll container dark */
+html.dark-theme .scroll-container {
+  background-color: #110e22;
+  background-image: none;
+  border-color: rgba(168, 85, 244, 0.15);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 60px rgba(88, 28, 180, 0.08);
+}
+
+html.dark-theme .scroll-container::before {
+  border-top-color: #3b2870;
+  background-image: linear-gradient(180deg, rgba(88, 28, 180, 0.08) 0%, transparent 100%);
+}
+
+html.dark-theme .scroll-container::after {
+  border-bottom-color: #3b2870;
+  background-image: linear-gradient(0deg, rgba(88, 28, 180, 0.08) 0%, transparent 100%);
+}
+
+/* Parchment button in dark — arcane violet */
+html.dark-theme .parchment-scroll-btn {
+  background: #1a1535;
+  background-image: linear-gradient(135deg, #1e1840 0%, #1a1535 50%, #14102a 100%);
+  border-color: #4c3680;
+  color: #e8dcff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(168, 85, 244, 0.1);
+}
+
+html.dark-theme .parchment-scroll-btn::before,
+html.dark-theme .parchment-scroll-btn::after {
+  background: #3b2870;
+}
+
+html.dark-theme .parchment-scroll-btn:hover {
+  background-image: linear-gradient(135deg, #251e50 0%, #201a42 50%, #1a1535 100%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 16px rgba(168, 85, 244, 0.15);
+}
+
+/* About section dark */
+html.dark-theme .about-section-container {
+  background-color: #0d0a16 !important;
+}
+
+/* Warm card dark adjustments — apply subtle transition */
+.warm-card {
+  transition: background-color 1.2s ease, border-color 1.2s ease, box-shadow 1.2s ease, transform 0.3s ease;
+}
+
+/* Nav dark mode */
+html.dark-theme nav {
+  transition: background-color 0.8s ease;
+}
+
+/* Chip/tag styling in dark */
+html.dark-theme .chip {
+  background: rgba(168, 85, 244, 0.08);
+  border-color: rgba(168, 85, 244, 0.3);
+  color: #c084fc;
+}
+
+/* Buttons in dark */
+html.dark-theme .btn-primary {
+  background: #7c3aed;
+  border-color: #7c3aed;
+  color: #fff;
+}
+
+html.dark-theme .btn-primary::before {
+  background: #581c87;
+}
+
+html.dark-theme .btn-primary:hover {
+  border-color: #581c87;
+  box-shadow: 0 0 20px rgba(168, 85, 244, 0.3);
+}
+
+html.dark-theme .btn-secondary {
+  border-color: rgba(168, 85, 244, 0.35);
+  color: #d4c6f0;
+}
+
+html.dark-theme .btn-secondary:hover {
+  background: rgba(168, 85, 244, 0.1);
+  border-color: #a855f4;
+  color: #c084fc;
+  box-shadow: 0 0 16px rgba(168, 85, 244, 0.15);
+}
+
+/* Parchment tag hover in dark */
+html.dark-theme .parchment-tag:hover {
+  border-color: #a855f4 !important;
+  box-shadow: 0 0 18px rgba(168, 85, 244, 0.3), inset 0 0 12px rgba(168, 85, 244, 0.15) !important;
+  color: #f1eaff !important;
+}
+
+/* Hero parchment btn dark glow */
+html.dark-theme .hero-parchment-btn:hover {
+  filter: drop-shadow(0 10px 20px rgba(88, 28, 180, 0.45)) drop-shadow(0 0 16px rgba(168, 85, 244, 0.5)) !important;
+}
+
+/* Candle wall glow — purple tint in dark */
+html.dark-theme .candle-wall-glow {
+  width: 200px;
+  height: 400px;
+  background: radial-gradient(ellipse at left center, rgba(168, 85, 244, 0.04) 0%, transparent 70%);
+}
+
+/* Tooltip dark — violet accent */
+html.dark-theme .candle-tooltip {
+  background: rgba(14, 10, 28, 0.96);
+  border-color: rgba(168, 85, 244, 0.35);
+  color: #e8dcff;
+}
+
+html.dark-theme .candle-tooltip-arrow {
+  background: rgba(14, 10, 28, 0.96);
+  border-color: rgba(168, 85, 244, 0.35);
+}
+
+/* Code editor (in About section) dark */
+html.dark-theme .code-editor-body {
+  transition: background-color 0.8s ease;
+}
+
+/* ─── Ensure all text elements are properly visible in dark ─── */
+html.dark-theme h1,
+html.dark-theme h2,
+html.dark-theme h3,
+html.dark-theme h4,
+html.dark-theme h5,
+html.dark-theme h6 {
+  color: #f1eaff;
+}
+
+html.dark-theme p,
+html.dark-theme span,
+html.dark-theme li,
+html.dark-theme td,
+html.dark-theme th,
+html.dark-theme label,
+html.dark-theme div {
+  transition: color 1.2s ease;
+}
+
+html.dark-theme a {
+  color: #c084fc;
+}
+
+html.dark-theme a:hover {
+  color: #d8b4fe;
+}
+
+/* Input / textarea fields in dark */
+html.dark-theme input,
+html.dark-theme textarea,
+html.dark-theme select {
+  background-color: #110e22 !important;
+  color: #f1eaff !important;
+  border-color: rgba(168, 85, 244, 0.25) !important;
+}
+
+html.dark-theme input::placeholder,
+html.dark-theme textarea::placeholder {
+  color: #6b5a8e !important;
+}
+
+html.dark-theme input:focus,
+html.dark-theme textarea:focus,
+html.dark-theme select:focus {
+  border-color: #a855f4 !important;
+  box-shadow: 0 0 0 3px rgba(168, 85, 244, 0.15) !important;
+}
+
+/* Section label in dark */
+html.dark-theme .section-label {
+  color: #a855f4;
+}
