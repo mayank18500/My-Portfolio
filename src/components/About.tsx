@@ -292,7 +292,8 @@ export default function About() {
                     <div style={{
                         display: 'flex',
                         flexDirection: 'column',
-                        gap: '2rem'
+                        gap: '2rem',
+                        minWidth: 0
                     }}>
                         {/* Leather-bound style Tab Switcher */}
                         <div 
@@ -350,7 +351,7 @@ export default function About() {
                         </div>
 
                         {/* Interactive Tab Pages Panel */}
-                        <div style={{ flex: 1, display: 'flex' }}>
+                        <div style={{ flex: 1, display: 'flex', minWidth: 0, width: '100%' }}>
                             <AnimatePresence mode="wait">
                                 <motion.div
                                     key={activeTab}
@@ -371,7 +372,8 @@ export default function About() {
                                         display: 'flex',
                                         flexDirection: 'column',
                                         gap: '1.5rem',
-                                        minHeight: '410px'
+                                        minHeight: '410px',
+                                        minWidth: 0
                                     }}
                                 >
                                     <CornerOrnaments />
@@ -539,7 +541,7 @@ export default function About() {
 
                                     {/* Tab 3: Runic Essences (Traits) */}
                                     {activeTab === 'runes' && (
-                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', height: '100%' }}>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', height: '100%', minWidth: 0 }}>
                                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1.5px solid rgba(139,80,40,0.12)', paddingBottom: '0.6rem', marginBottom: '0.2rem' }}>
                                                 <h3 style={{
                                                     fontFamily: 'var(--font-display)',
@@ -608,6 +610,7 @@ export default function About() {
                                                     animate={{ opacity: 1, y: 0 }}
                                                     exit={{ opacity: 0, y: -10 }}
                                                     transition={{ duration: 0.25 }}
+                                                    className="rune-details-card"
                                                     style={{
                                                         flex: 1,
                                                         background: '#19110c',
@@ -622,11 +625,31 @@ export default function About() {
                                                         position: 'relative'
                                                     }}
                                                 >
-                                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                                        <h4 style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontSize: '1.05rem', fontWeight: 800, color: 'var(--amber-light)', margin: 0 }}>
+                                                    <div style={{
+                                                        display: 'flex',
+                                                        justifyContent: 'space-between',
+                                                        alignItems: 'center',
+                                                        flexWrap: 'wrap',
+                                                        gap: '0.5rem',
+                                                        width: '100%'
+                                                    }}>
+                                                        <h4 style={{
+                                                            fontFamily: 'var(--font-display)',
+                                                            fontStyle: 'italic',
+                                                            fontSize: 'clamp(0.95rem, 4vw, 1.15rem)',
+                                                            fontWeight: 800,
+                                                            color: 'var(--amber-light)',
+                                                            margin: 0
+                                                        }}>
                                                             {selectedRune.name}
                                                         </h4>
-                                                        <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.68rem', color: '#9ebf7a', fontWeight: 700 }}>
+                                                        <span style={{
+                                                            fontFamily: 'var(--font-mono)',
+                                                            fontSize: '0.68rem',
+                                                            color: '#9ebf7a',
+                                                            fontWeight: 700,
+                                                            whiteSpace: 'nowrap'
+                                                        }}>
                                                             {selectedRune.aura}
                                                         </span>
                                                     </div>
@@ -645,7 +668,10 @@ export default function About() {
                                                         border: '1px solid var(--border)',
                                                         marginTop: '0.2rem',
                                                         overflowX: 'auto',
-                                                        whiteSpace: 'nowrap'
+                                                        whiteSpace: 'nowrap',
+                                                        width: '100%',
+                                                        boxSizing: 'border-box',
+                                                        minWidth: 0
                                                     }}>
                                                         <span style={{ color: 'var(--text-light)', marginRight: '0.5rem', userSelect: 'none' }}>✦ incantation:</span>
                                                         {selectedRune.incantation}

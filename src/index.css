@@ -66,6 +66,9 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--amber) var(--bg-parchment);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 html::-webkit-scrollbar {
@@ -87,6 +90,8 @@ body {
   font-family: var(--font-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: 100%;
 }
 
 ::selection {
@@ -1093,6 +1098,10 @@ body::before {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
   }
+
+  .name-letter {
+    font-size: clamp(2.2rem, 6.2vw, 3.6rem) !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1155,7 +1164,7 @@ body::before {
 
   /* Responsive font sizes for name letters to keep "Mayank Kumar" perfectly in a single line */
   .name-letter {
-    font-size: 1.65rem !important;
+    font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
   }
 
   /* Side-by-side buttons on mobile to save critical vertical height */
@@ -1173,7 +1182,7 @@ body::before {
 
 @media (max-width: 365px) {
   .name-letter {
-    font-size: 1.35rem !important;
+    font-size: clamp(1.15rem, 5.5vw, 1.35rem) !important;
   }
 
   .hero-ctas {
@@ -1279,6 +1288,15 @@ body::before {
   .about-narrative-text {
     text-align: left !important; /* Prevent river-gaps inside narrow justified text blocks */
     font-size: 0.95rem !important; /* Fit sentences elegantly on standard mobile sizes */
+  }
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .rune-details-card {
+    padding: 1rem 0.85rem !important;
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
   }
 }
 
