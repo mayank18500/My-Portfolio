@@ -370,8 +370,8 @@ export default function Skills() {
         <section id="skills" className="split-white-section" style={{
             padding: '6.5rem 0',
             position: 'relative',
-            background: '#ffffff',
-            backgroundImage: "url('/Design/d12.svg')",
+            background: 'var(--bg-cream)',
+            backgroundImage: 'var(--skills-bg)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             overflow: 'hidden'
@@ -424,7 +424,7 @@ export default function Skills() {
                             flexWrap: 'wrap',
                             gap: '0.5rem',
                             padding: '0.6rem',
-                            background: 'rgba(242, 230, 204, 0.6)',
+                            background: 'var(--bg-card)',
                             backdropFilter: 'blur(10px)',
                             border: '1.5px solid var(--border)',
                             borderRadius: '10px',
@@ -452,7 +452,7 @@ export default function Skills() {
                                             color: isActive ? '#fff' : 'var(--text-secondary)',
                                             background: isActive
                                                 ? 'linear-gradient(135deg, var(--amber) 0%, var(--brown-light) 100%)'
-                                                : 'rgba(250, 245, 233, 0.75)',
+                                                : 'var(--bg-cream)',
                                             boxShadow: isActive
                                                 ? '0 6px 16px rgba(200, 118, 42, 0.3)'
                                                 : '0 2px 6px rgba(44, 24, 16, 0.04)',
@@ -491,9 +491,9 @@ export default function Skills() {
                                             flexDirection: 'column',
                                             gap: '0.85rem',
                                             padding: '1.35rem 1.6rem',
-                                            border: isSelected ? '2px solid var(--amber)' : '1.5px solid rgba(139, 80, 40, 0.15)',
+                                            border: isSelected ? '2px solid var(--amber)' : '1.5px solid var(--border)',
                                             borderRadius: '10px',
-                                            background: isSelected ? '#ffffff' : 'rgba(250, 245, 233, 0.7)',
+                                            background: isSelected ? 'var(--bg-cream)' : 'var(--bg-card)',
                                             boxShadow: isSelected
                                                 ? '0 10px 30px rgba(200,118,42,0.14), inset 0 0 12px rgba(200,118,42,0.03)'
                                                 : '0 4px 15px rgba(92,51,23,0.03)',
@@ -505,7 +505,7 @@ export default function Skills() {
                                         whileHover={{
                                             transform: 'translateY(-3px)',
                                             borderColor: 'var(--amber-light)',
-                                            background: '#ffffff',
+                                            background: 'var(--bg-cream)',
                                             boxShadow: '0 10px 25px rgba(92,51,23,0.07)'
                                         }}
                                     >
@@ -519,7 +519,7 @@ export default function Skills() {
                                                     width: '38px',
                                                     height: '38px',
                                                     borderRadius: '50%',
-                                                    background: isSelected ? 'rgba(200, 118, 42, 0.08)' : 'rgba(139, 80, 40, 0.06)',
+                                                    background: isSelected ? 'var(--amber-pale)' : 'rgba(139, 80, 40, 0.06)',
                                                     border: '1.5px solid var(--border)',
                                                     display: 'flex',
                                                     alignItems: 'center',
@@ -553,9 +553,9 @@ export default function Skills() {
                             className="split-col-card"
                             style={{
                                 padding: '2.5rem',
-                                background: 'rgba(255, 255, 255, 0.92)',
+                                background: 'var(--bg-card)',
                                 backdropFilter: 'blur(12px)',
-                                border: '2px solid rgba(139, 80, 40, 0.25)',
+                                border: '2px solid var(--border)',
                                 borderRadius: '16px',
                                 boxShadow: '0 16px 48px rgba(92,51,23,0.11), 0 0 24px rgba(200, 118, 42, 0.03)',
                                 display: 'flex',
@@ -574,7 +574,7 @@ export default function Skills() {
                                 display: 'flex',
                                 justifyContent: 'space-between',
                                 alignItems: 'center',
-                                borderBottom: '2.5px solid rgba(139, 80, 40, 0.18)',
+                                borderBottom: '2.5px solid var(--border-strong)',
                                 paddingBottom: '1.25rem',
                                 position: 'relative',
                                 zIndex: 2
@@ -599,7 +599,7 @@ export default function Skills() {
                                     fontWeight: 800,
                                     borderColor: 'var(--amber)',
                                     color: 'var(--amber)',
-                                    background: 'rgba(200, 118, 42, 0.08)',
+                                    background: 'var(--amber-pale)',
                                     boxShadow: '0 0 10px rgba(200, 118, 42, 0.1)',
                                     padding: '0.4rem 0.9rem',
                                     borderRadius: '100px'
@@ -628,8 +628,8 @@ export default function Skills() {
                                     <span key={tag} className="chip" style={{
                                         fontSize: '0.72rem',
                                         fontWeight: 700,
-                                        background: 'rgba(200, 118, 42, 0.06)',
-                                        borderColor: 'rgba(200, 118, 42, 0.2)',
+                                        background: 'var(--amber-pale)',
+                                        borderColor: 'var(--border)',
                                         padding: '0.35rem 0.85rem',
                                         color: 'var(--text-secondary)'
                                     }}>
@@ -641,7 +641,7 @@ export default function Skills() {
                             {/* Live Code Mock Terminal */}
                             <div style={{
                                 background: '#19110c',
-                                border: '1.5px solid rgba(139,80,40,0.3)',
+                                border: '1.5px solid var(--border-strong)',
                                 borderRadius: '10px',
                                 overflow: 'hidden',
                                 boxShadow: '0 10px 35px rgba(44,24,16,0.22)',
@@ -651,7 +651,7 @@ export default function Skills() {
                                 {/* Editor Header with multi-file tabs */}
                                 <div style={{
                                     display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                                    padding: '0 1rem', borderBottom: '1px solid rgba(200,118,42,0.15)',
+                                    padding: '0 1rem', borderBottom: '1px solid var(--border)',
                                     background: '#120c08',
                                     height: '42px'
                                 }}>
@@ -681,7 +681,7 @@ export default function Skills() {
                                                             borderTopRightRadius: '5px',
                                                             fontFamily: 'var(--font-mono)',
                                                             fontSize: '0.67rem',
-                                                            color: isActive ? 'var(--amber-light)' : '#8b6a4a',
+                                                            color: isActive ? 'var(--amber-light)' : 'var(--text-muted)',
                                                             borderBottom: isActive ? '2px solid var(--amber)' : '2px solid transparent',
                                                             cursor: 'pointer',
                                                             display: 'flex',
@@ -730,7 +730,7 @@ export default function Skills() {
                                                 <div key={idx} style={{ display: 'flex', gap: '1.25rem' }}>
                                                     {/* Line Numbers */}
                                                     <span style={{
-                                                        color: '#5c3d25',
+                                                        color: 'var(--text-light)',
                                                         userSelect: 'none',
                                                         minWidth: '1.5rem',
                                                         fontSize: '0.65rem',

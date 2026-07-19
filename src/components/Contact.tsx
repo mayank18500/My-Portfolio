@@ -98,7 +98,7 @@ export default function Contact() {
                 padding: '6.5rem 0',
                 position: 'relative',
                 borderBottom: '1px solid rgba(139, 80, 40, 0.15)',
-                backgroundImage: "url('/Design/d13.svg')",
+                backgroundImage: 'var(--contact-bg)',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
             }}
@@ -161,7 +161,7 @@ export default function Contact() {
                             className="about-portrait-card"
                             style={{
                                 width: '100%',
-                                background: 'rgba(255, 255, 255, 0.88)',
+                                background: 'var(--bg-card)',
                                 backdropFilter: 'blur(12px)',
                                 border: '1.5px solid rgba(139, 80, 40, 0.22)',
                                 borderRadius: '16px',
@@ -270,7 +270,7 @@ export default function Contact() {
                             className="about-details-card"
                             style={{
                                 width: '100%',
-                                background: 'rgba(255, 255, 255, 0.88)',
+                                background: 'var(--bg-card)',
                                 backdropFilter: 'blur(12px)',
                                 border: '1.5px solid rgba(139, 80, 40, 0.22)',
                                 borderRadius: '16px',
@@ -309,8 +309,8 @@ export default function Contact() {
                                         style={{
                                             width: '100%',
                                             padding: '0.8rem 1.1rem',
-                                            background: 'rgba(250, 245, 233, 0.75)',
-                                            border: '1.5px solid rgba(139, 80, 40, 0.22)',
+                                            backgroundColor: 'var(--bg-card)',
+                                            border: '1.5px solid var(--border)',
                                             borderRadius: '8px',
                                             color: 'var(--brown-dark)',
                                             fontFamily: 'var(--font-body)',
@@ -321,12 +321,12 @@ export default function Contact() {
                                         }}
                                         onFocus={e => {
                                             e.target.style.borderColor = 'var(--amber)';
-                                            e.target.style.background = '#fff';
-                                            e.target.style.boxShadow = '0 0 10px rgba(200, 118, 42, 0.12)';
+                                            e.target.style.backgroundColor = 'var(--bg-cream)';
+                                            e.target.style.boxShadow = '0 0 10px var(--amber-glow)';
                                         }}
                                         onBlur={e => {
-                                            e.target.style.borderColor = 'rgba(139, 80, 40, 0.22)';
-                                            e.target.style.background = 'rgba(250, 245, 233, 0.75)';
+                                            e.target.style.borderColor = 'var(--border)';
+                                            e.target.style.backgroundColor = 'var(--bg-card)';
                                             e.target.style.boxShadow = 'none';
                                         }}
                                     />
@@ -343,8 +343,8 @@ export default function Contact() {
                                         style={{
                                             width: '100%',
                                             padding: '0.8rem 1.1rem',
-                                            background: 'rgba(250, 245, 233, 0.75)',
-                                            border: '1.5px solid rgba(139, 80, 40, 0.22)',
+                                            backgroundColor: 'var(--bg-card)',
+                                            border: '1.5px solid var(--border)',
                                             borderRadius: '8px',
                                             color: 'var(--brown-dark)',
                                             fontFamily: 'var(--font-body)',
@@ -355,12 +355,12 @@ export default function Contact() {
                                         }}
                                         onFocus={e => {
                                             e.target.style.borderColor = 'var(--amber)';
-                                            e.target.style.background = '#fff';
-                                            e.target.style.boxShadow = '0 0 10px rgba(200, 118, 42, 0.12)';
+                                            e.target.style.backgroundColor = 'var(--bg-cream)';
+                                            e.target.style.boxShadow = '0 0 10px var(--amber-glow)';
                                         }}
                                         onBlur={e => {
-                                            e.target.style.borderColor = 'rgba(139, 80, 40, 0.22)';
-                                            e.target.style.background = 'rgba(250, 245, 233, 0.75)';
+                                            e.target.style.borderColor = 'var(--border)';
+                                            e.target.style.backgroundColor = 'var(--bg-card)';
                                             e.target.style.boxShadow = 'none';
                                         }}
                                     />
@@ -377,8 +377,8 @@ export default function Contact() {
                                         style={{
                                             width: '100%',
                                             padding: '0.85rem 1.1rem',
-                                            background: 'rgba(250, 245, 233, 0.75)',
-                                            border: '1.5px solid rgba(139, 80, 40, 0.22)',
+                                            backgroundColor: 'var(--bg-card)',
+                                            border: '1.5px solid var(--border)',
                                             borderRadius: '8px',
                                             color: 'var(--brown-dark)',
                                             fontFamily: 'var(--font-body)',
@@ -391,12 +391,12 @@ export default function Contact() {
                                         }}
                                         onFocus={e => {
                                             e.target.style.borderColor = 'var(--amber)';
-                                            e.target.style.background = '#fff';
-                                            e.target.style.boxShadow = '0 0 10px rgba(200, 118, 42, 0.12)';
+                                            e.target.style.backgroundColor = 'var(--bg-cream)';
+                                            e.target.style.boxShadow = '0 0 10px var(--amber-glow)';
                                         }}
                                         onBlur={e => {
-                                            e.target.style.borderColor = 'rgba(139, 80, 40, 0.22)';
-                                            e.target.style.background = 'rgba(250, 245, 233, 0.75)';
+                                            e.target.style.borderColor = 'var(--border)';
+                                            e.target.style.backgroundColor = 'var(--bg-card)';
                                             e.target.style.boxShadow = 'none';
                                         }}
                                     />
@@ -420,7 +420,7 @@ export default function Contact() {
                                 >
                                     {status === 'idle' && (<><Send size={15} /> Dispatch incantation</>)}
                                     {status === 'sending' && (
-                                        <><motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }} style={{ width: 15, height: 15, border: '2px solid #2c1810', borderTopColor: 'transparent', borderRadius: '50%' }} /> Dispatching...</>
+                                        <><motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: 'linear' }} style={{ width: 15, height: 15, border: '2px solid currentColor', borderTopColor: 'transparent', borderRadius: '50%' }} /> Dispatching...</>
                                     )}
                                     {status === 'success' && (<><CheckCircle size={15} /> Message dispatched successfully!</>)}
                                     {status === 'error' && (<><AlertCircle size={15} /> Connection failed — Summons by email</>)}

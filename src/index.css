@@ -47,6 +47,10 @@
   --shadow-warm: 0 4px 24px rgba(92, 51, 23, 0.15);
   --shadow-warm-lg: 0 8px 48px rgba(92, 51, 23, 0.2);
   --shadow-amber: 0 0 20px rgba(200, 118, 42, 0.2);
+
+  /* Section backgrounds with blended SVG graphics */
+  --contact-bg: linear-gradient(rgba(250, 245, 233, 0.94), rgba(250, 245, 233, 0.94)), url('/Design/d13.svg');
+  --skills-bg: linear-gradient(rgba(250, 245, 233, 0.94), rgba(250, 245, 233, 0.94)), url('/Design/d12.svg');
 }
 
 /* ─── RESET ─── */
@@ -290,11 +294,19 @@ body::before {
 
 @keyframes orbit-spin {
   from {
-    transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+    transform: rotate(0deg);
   }
-
   to {
-    transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-counter-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
   }
 }
 
@@ -1822,6 +1834,10 @@ html.dark-theme {
   --shadow-warm: 0 4px 24px rgba(88, 28, 180, 0.25);
   --shadow-warm-lg: 0 8px 48px rgba(88, 28, 180, 0.35);
   --shadow-amber: 0 0 20px rgba(168, 85, 244, 0.2);
+
+  /* Section backgrounds with blended SVG graphics */
+  --contact-bg: linear-gradient(rgba(13, 10, 22, 0.94), rgba(13, 10, 22, 0.94)), url('/Design/d13.svg');
+  --skills-bg: linear-gradient(rgba(13, 10, 22, 0.94), rgba(13, 10, 22, 0.94)), url('/Design/d12.svg');
 
   color-scheme: dark;
 }

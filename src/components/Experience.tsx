@@ -120,9 +120,9 @@ export default function Experience() {
                         <div 
                             className="about-details-card"
                             style={{
-                                background: 'rgba(255, 255, 255, 0.88)',
+                                background: 'var(--bg-card)',
                                 backdropFilter: 'blur(12px)',
-                                border: '1.5px solid rgba(139, 80, 40, 0.22)',
+                                border: '1.5px solid var(--border)',
                                 borderRadius: '16px',
                                 boxShadow: '0 16px 40px rgba(92,51,23,0.08)',
                                 position: 'relative',
@@ -235,9 +235,9 @@ export default function Experience() {
                                     }}
                                     className="cert-card-interactive"
                                     style={{
-                                        background: 'rgba(255, 255, 255, 0.88)',
+                                        background: 'var(--bg-card)',
                                         backdropFilter: 'blur(8px)',
-                                        border: '1.5px solid rgba(139, 80, 40, 0.22)',
+                                        border: '1.5px solid var(--border)',
                                         borderRadius: '12px',
                                         overflow: 'hidden',
                                         boxShadow: '0 6px 18px rgba(92, 51, 23, 0.05)',
@@ -257,7 +257,7 @@ export default function Experience() {
                                     }}
                                     onMouseLeave={e => {
                                         const card = e.currentTarget as HTMLDivElement
-                                        card.style.borderColor = 'rgba(139, 80, 40, 0.22)'
+                                        card.style.borderColor = 'var(--border)'
                                         const orbit = card.querySelector('.cert-orbit-ring') as HTMLDivElement
                                         if (orbit) {
                                             orbit.style.opacity = '0'
@@ -285,7 +285,7 @@ export default function Experience() {
                                         <span style={{
                                             fontFamily: 'var(--font-mono)',
                                             fontSize: '0.58rem',
-                                            color: 'var(--brown-dark)',
+                                            color: 'var(--bg-deep)',
                                             letterSpacing: '0.12rem',
                                             textTransform: 'uppercase',
                                             marginTop: '0.5rem',
@@ -304,7 +304,7 @@ export default function Experience() {
                                         display: 'flex', 
                                         flexDirection: 'column', 
                                         justifyContent: 'center',
-                                        background: '#ffffff'
+                                        background: 'var(--bg-card)'
                                     }}>
                                         <h4 style={{
                                             fontFamily: 'var(--font-display)',

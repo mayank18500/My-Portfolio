@@ -187,7 +187,7 @@ export default function About() {
                             className="about-portrait-card"
                             style={{
                                 width: '100%',
-                                background: 'rgba(255, 255, 255, 0.88)',
+                                background: 'var(--bg-card)',
                                 backdropFilter: 'blur(12px)',
                                 border: '1.5px solid rgba(139, 80, 40, 0.22)',
                                 borderRadius: '16px',
@@ -301,7 +301,7 @@ export default function About() {
                                 display: 'flex',
                                 gap: '0.5rem',
                                 padding: '0.5rem',
-                                background: 'rgba(242, 230, 204, 0.65)',
+                                background: 'var(--bg-card)',
                                 backdropFilter: 'blur(10px)',
                                 border: '1.5px solid var(--border)',
                                 borderRadius: '10px',
@@ -334,7 +334,7 @@ export default function About() {
                                             color: isActive ? '#fff' : 'var(--text-secondary)',
                                             background: isActive 
                                                 ? 'linear-gradient(135deg, var(--amber) 0%, var(--brown-light) 100%)' 
-                                                : 'rgba(250, 245, 233, 0.7)',
+                                                : 'var(--bg-cream)',
                                             boxShadow: isActive 
                                                 ? '0 6px 14px rgba(200, 118, 42, 0.25)' 
                                                 : '0 1px 4px rgba(44, 24, 16, 0.03)',
@@ -361,7 +361,7 @@ export default function About() {
                                     className="about-details-card"
                                     style={{
                                         width: '100%',
-                                        background: 'rgba(255, 255, 255, 0.88)',
+                                        background: 'var(--bg-card)',
                                         backdropFilter: 'blur(12px)',
                                         border: '1.5px solid rgba(139, 80, 40, 0.22)',
                                         borderRadius: '16px',
@@ -482,7 +482,7 @@ export default function About() {
                                                         height: '12px',
                                                         borderRadius: '50%',
                                                         background: 'var(--amber)',
-                                                        border: '2px solid #fff',
+                                                        border: '2px solid var(--bg-cream)',
                                                         boxShadow: '0 0 8px var(--amber-glow)',
                                                         zIndex: 2
                                                     }} />
@@ -514,7 +514,7 @@ export default function About() {
                                                         height: '12px',
                                                         borderRadius: '50%',
                                                         background: 'var(--brown-light)',
-                                                        border: '2px solid #fff',
+                                                        border: '2px solid var(--bg-cream)',
                                                         zIndex: 2
                                                     }} />
                                                     
@@ -576,8 +576,8 @@ export default function About() {
                                                                 alignItems: 'center',
                                                                 gap: '0.4rem',
                                                                 padding: '0.9rem 0.5rem',
-                                                                background: isSelected ? '#ffffff' : 'rgba(250, 245, 233, 0.75)',
-                                                                border: isSelected ? '2px solid var(--amber)' : '1.5px solid rgba(139, 80, 40, 0.15)',
+                                                                background: isSelected ? 'var(--bg-cream)' : 'var(--bg-card)',
+                                                                border: isSelected ? '2px solid var(--amber)' : '1.5px solid var(--border)',
                                                                 borderRadius: '8px',
                                                                 boxShadow: isSelected 
                                                                     ? '0 6px 15px rgba(200,118,42,0.12), inset 0 0 8px rgba(200,118,42,0.03)' 
@@ -611,7 +611,7 @@ export default function About() {
                                                     style={{
                                                         flex: 1,
                                                         background: '#19110c',
-                                                        border: '1.5px solid rgba(139,80,40,0.3)',
+                                                        border: '1.5px solid var(--border-strong)',
                                                         borderRadius: '8px',
                                                         padding: '1.1rem 1.4rem',
                                                         display: 'flex',
@@ -642,12 +642,12 @@ export default function About() {
                                                         background: '#120c08',
                                                         padding: '0.4rem 0.8rem',
                                                         borderRadius: '4px',
-                                                        border: '1px solid rgba(200, 118, 42, 0.1)',
+                                                        border: '1px solid var(--border)',
                                                         marginTop: '0.2rem',
                                                         overflowX: 'auto',
                                                         whiteSpace: 'nowrap'
                                                     }}>
-                                                        <span style={{ color: '#5c3d25', marginRight: '0.5rem', userSelect: 'none' }}>✦ incantation:</span>
+                                                        <span style={{ color: 'var(--text-light)', marginRight: '0.5rem', userSelect: 'none' }}>✦ incantation:</span>
                                                         {selectedRune.incantation}
                                                     </div>
                                                 </motion.div>

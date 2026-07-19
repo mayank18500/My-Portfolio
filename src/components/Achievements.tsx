@@ -64,8 +64,8 @@ export default function Achievements() {
                             whileHover={{ y: -5 }}
                             style={{
                                 padding: '2rem',
-                                background: '#ffffff',
-                                border: '1px solid rgba(139, 80, 40, 0.12)',
+                                background: 'var(--bg-card)',
+                                border: '1px solid var(--border)',
                                 borderRadius: '12px',
                                 boxShadow: '0 6px 20px rgba(92, 51, 23, 0.05)',
                                 transition: 'all 0.3s ease',
@@ -73,13 +73,13 @@ export default function Achievements() {
                             }}
                             onMouseEnter={e => {
                                 const el = e.currentTarget as HTMLDivElement
-                                el.style.boxShadow = '0 12px 32px rgba(92, 51, 23, 0.1)'
-                                el.style.borderColor = 'rgba(200, 118, 42, 0.25)'
+                                el.style.boxShadow = 'var(--shadow-warm)'
+                                el.style.borderColor = 'var(--amber)'
                             }}
                             onMouseLeave={e => {
                                 const el = e.currentTarget as HTMLDivElement
                                 el.style.boxShadow = '0 6px 20px rgba(92, 51, 23, 0.05)'
-                                el.style.borderColor = 'rgba(139, 80, 40, 0.12)'
+                                el.style.borderColor = 'var(--border)'
                             }}
                         >
                             <span style={{

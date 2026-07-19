@@ -374,60 +374,79 @@ export default function Hero() {
                         </div>
 
                         {/* Outer locked magic circle runes: Blue Express, Cyan React, Green MongoDB, Yellow Node */}
-                        {/* Emblem 1: Blue Express (top-left) */}
-                        <div className="portal-rune portal-rune-1 float-rune-1">
-                            <img
-                                src="/Design/d4.svg"
-                                alt="Blue Express"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
-                                }}
-                            />
-                        </div>
+                        <div style={{
+                            position: 'absolute',
+                            width: '100%',
+                            height: '100%',
+                            top: 0,
+                            left: 0,
+                            animation: 'orbit-spin 50s linear infinite',
+                            pointerEvents: 'none',
+                            zIndex: 6
+                        }}>
+                            {/* Emblem 1: Blue Express (top-left) */}
+                            <div className="portal-rune portal-rune-1" style={{ animation: 'rotate-counter-clockwise 50s linear infinite' }}>
+                                <div className="float-rune-1" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <img
+                                        src="/Design/d4.svg"
+                                        alt="Blue Express"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                            filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
+                                        }}
+                                    />
+                                </div>
+                            </div>
 
-                        {/* Emblem 2: Green MongoDB (bottom-left) */}
-                        <div className="portal-rune portal-rune-2 float-rune-2">
-                            <img
-                                src="/Design/d5.svg"
-                                alt="Green MongoDB"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
-                                }}
-                            />
-                        </div>
+                            {/* Emblem 2: Green MongoDB (bottom-left) */}
+                            <div className="portal-rune portal-rune-2" style={{ animation: 'rotate-counter-clockwise 50s linear infinite' }}>
+                                <div className="float-rune-2" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <img
+                                        src="/Design/d5.svg"
+                                        alt="Green MongoDB"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                            filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
+                                        }}
+                                    />
+                                </div>
+                            </div>
 
-                        {/* Emblem 3: Blue React Alternate (top-right) */}
-                        <div className="portal-rune portal-rune-3 float-rune-3">
-                            <img
-                                src="/Design/d6.svg"
-                                alt="Tech Emblem"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
-                                }}
-                            />
-                        </div>
+                            {/* Emblem 3: Blue React Alternate (top-right) */}
+                            <div className="portal-rune portal-rune-3" style={{ animation: 'rotate-counter-clockwise 50s linear infinite' }}>
+                                <div className="float-rune-3" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <img
+                                        src="/Design/d6.svg"
+                                        alt="Tech Emblem"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                            filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
+                                        }}
+                                    />
+                                </div>
+                            </div>
 
-                        {/* Emblem 4: Node (bottom-right) */}
-                        <div className="portal-rune portal-rune-4 float-rune-4">
-                            <img
-                                src="/Design/d9.svg"
-                                alt="Tech Emblem"
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'contain',
-                                    filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
-                                }}
-                            />
+                            {/* Emblem 4: Node (bottom-right) */}
+                            <div className="portal-rune portal-rune-4" style={{ animation: 'rotate-counter-clockwise 50s linear infinite' }}>
+                                <div className="float-rune-4" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                    <img
+                                        src="/Design/d9.svg"
+                                        alt="Tech Emblem"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                            filter: 'drop-shadow(0 6px 12px rgba(0,0,0,0.4))'
+                                        }}
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         {/* Overlay elegant golden corner glyph accents */}
@@ -595,7 +614,7 @@ export default function Hero() {
                     {/* Parchment scroll style CTA buttons using d11.svg and d10.svg */}
                     <div style={{ display: 'flex', gap: '2rem', flexWrap: 'wrap' }} className="hero-ctas">
                         <a
-                            href="/Resume.pdf"
+                            href="/Mayank_kumar_Resume.pdf"
                             download="Mayank_Kumar_Resume.pdf"
                             className="hero-parchment-btn"
                             style={{

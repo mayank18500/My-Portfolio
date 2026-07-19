@@ -169,8 +169,8 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
     if (projectName === 'Cloud-Desk') {
         return (
             <div style={{
-                background: 'rgba(44, 24, 16, 0.04)',
-                border: '1.5px solid rgba(139, 80, 40, 0.2)',
+                background: 'var(--bg-warm)',
+                border: '1.5px solid var(--border)',
                 borderRadius: '12px',
                 padding: '1.25rem',
                 height: '100%',
@@ -180,7 +180,7 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                 fontFamily: 'var(--font-mono)',
                 minHeight: '260px'
             }}>
-                <div style={{ fontSize: '0.7rem', color: 'var(--amber)', fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid rgba(139, 80, 40, 0.15)', paddingBottom: '0.4rem' }}>
+                <div style={{ fontSize: '0.7rem', color: 'var(--amber)', fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', borderBottom: '1px solid var(--border)', paddingBottom: '0.4rem' }}>
                     <span>TELEMETRY: WORKFLOWS</span>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
                         <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#c8762a', display: 'inline-block' }} />
@@ -193,7 +193,7 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                         { title: 'Technical', candidates: ['Mayank P.'], color: '#c8762a', active: true },
                         { title: 'Summoned', candidates: ['Eva N.'], color: '#5a6e3a' }
                     ].map((col, idx) => (
-                        <div key={idx} style={{ background: 'rgba(255,255,255,0.75)', border: '1px solid rgba(139, 80, 40, 0.12)', borderRadius: '6px', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                        <div key={idx} style={{ background: 'var(--bg-cream)', border: '1px solid var(--border)', borderRadius: '6px', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                             <div style={{ fontSize: '0.6rem', fontWeight: 800, color: col.color, textTransform: 'uppercase', borderBottom: '1.5px solid currentColor', paddingBottom: '2px', marginBottom: '2px' }}>
                                 {col.title}
                             </div>
@@ -205,7 +205,7 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                                     style={{
                                         fontSize: '0.65rem',
                                         padding: '0.4rem 0.5rem',
-                                        background: '#fff',
+                                        background: 'var(--bg-card)',
                                         borderRadius: '4px',
                                         boxShadow: '0 2px 4px rgba(92,51,23,0.04)',
                                         borderLeft: `2.5px solid ${col.color}`,
@@ -266,8 +266,8 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
     if (projectName === 'Blog Platform') {
         return (
             <div style={{
-                background: 'rgba(255, 255, 255, 0.95)',
-                border: '1.5px solid rgba(139, 80, 40, 0.25)',
+                background: 'var(--bg-card)',
+                border: '1.5px solid var(--border)',
                 borderRadius: '12px',
                 padding: '1.25rem',
                 height: '100%',
@@ -278,20 +278,20 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                 boxShadow: '0 8px 24px rgba(92,51,23,0.06)',
                 minHeight: '260px'
             }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(139, 80, 40, 0.15)', paddingBottom: '0.4rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border)', paddingBottom: '0.4rem' }}>
                     <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.67rem', color: 'var(--warm-green)', fontWeight: 'bold' }}>COMPILER: SSR EJS ENGINE</span>
                     <span style={{ fontSize: '0.62rem', background: 'var(--warm-green)', color: '#fff', padding: '1px 6px', borderRadius: '3px', fontFamily: 'var(--font-mono)' }}>SSR ONLINE</span>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', flex: 1 }}>
                     {/* Editor */}
-                    <div style={{ background: '#fcfaf2', border: '1px solid rgba(139, 80, 40, 0.15)', borderRadius: '6px', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                    <div style={{ background: 'var(--bg-cream)', border: '1px solid var(--border)', borderRadius: '6px', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.55rem', color: 'var(--text-muted)', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '2px' }}>Markdown Editor</div>
                         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: 'var(--brown-dark)', whiteSpace: 'pre-wrap', lineHeight: 1.3 }}>
                             {`# Grimoire\nAlchemical design patterns...\n\n**Key Runes:**`}
                         </div>
                     </div>
                     {/* Render Preview */}
-                    <div style={{ background: '#fff', border: '1px dashed var(--warm-green)', borderRadius: '6px', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
+                    <div style={{ background: 'var(--bg-card)', border: '1px dashed var(--warm-green)', borderRadius: '6px', padding: '0.5rem', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
                         <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.55rem', color: 'var(--warm-green)', borderBottom: '1px solid rgba(0,0,0,0.05)', paddingBottom: '2px' }}>HTML Render</div>
                         <h4 style={{ fontFamily: 'var(--font-display)', fontSize: '0.8rem', color: 'var(--brown-dark)', margin: 0 }}>Grimoire</h4>
                         <p style={{ fontSize: '0.62rem', color: 'var(--text-secondary)', lineHeight: 1.3, margin: 0 }}>
@@ -340,8 +340,8 @@ export default function Projects() {
         <section id="projects" style={{
             padding: '6rem 0',
             position: 'relative',
-            background: '#faf5e9',
-            borderBottom: '1px solid rgba(139, 80, 40, 0.15)',
+            background: 'var(--bg-cream)',
+            borderBottom: '1px solid var(--border)',
         }}>
             <div className="section-wrapper" ref={ref}>
                 
@@ -379,11 +379,11 @@ export default function Projects() {
                         { title: 'Modern Interfaces', desc: 'React, GSAP & Fluid UI UX', Icon: Layers, color: '#3d7a6a' }
                     ].map((c, i) => (
                         <div key={i} style={{
-                            border: '1.5px solid #8b5e3c',
+                            border: '1.5px solid var(--border)',
                             borderRadius: '8px',
                             padding: '1.5rem',
                             boxShadow: '0 4px 14px rgba(92,51,23,0.08)',
-                            background: 'rgba(250, 245, 233, 0.75)',
+                            background: 'var(--bg-card)',
                             display: 'flex',
                             flexDirection: 'column',
                             alignItems: 'flex-start',
@@ -396,14 +396,14 @@ export default function Projects() {
                             el.style.transform = 'translateY(-4px)'
                             el.style.borderColor = c.color
                             el.style.boxShadow = '0 8px 24px rgba(92,51,23,0.12)'
-                            el.style.background = '#fff'
+                            el.style.background = 'var(--bg-cream)'
                         }}
                         onMouseLeave={e => {
                             const el = e.currentTarget as HTMLDivElement
                             el.style.transform = 'translateY(0)'
-                            el.style.borderColor = '#8b5e3c'
+                            el.style.borderColor = 'var(--border)'
                             el.style.boxShadow = '0 4px 14px rgba(92,51,23,0.08)'
-                            el.style.background = 'rgba(250, 245, 233, 0.75)'
+                            el.style.background = 'var(--bg-card)'
                         }}
                         >
                             <div style={{
@@ -461,7 +461,7 @@ export default function Projects() {
                                 width: '42px',
                                 height: '42px',
                                 borderRadius: '50%',
-                                background: 'rgba(250, 245, 233, 0.95)',
+                                background: 'var(--bg-cream)',
                                 border: '1.5px solid var(--amber)',
                                 color: 'var(--brown-dark)',
                                 display: 'flex',
@@ -480,7 +480,7 @@ export default function Projects() {
                             onMouseLeave={e => {
                                 e.currentTarget.style.transform = 'scale(1)'
                                 e.currentTarget.style.boxShadow = '0 4px 10px rgba(92,51,23,0.1)'
-                                e.currentTarget.style.background = 'rgba(250, 245, 233, 0.95)'
+                                e.currentTarget.style.background = 'var(--bg-cream)'
                             }}
                             aria-label="Scroll left"
                         >
@@ -492,7 +492,7 @@ export default function Projects() {
                                 width: '42px',
                                 height: '42px',
                                 borderRadius: '50%',
-                                background: 'rgba(250, 245, 233, 0.95)',
+                                background: 'var(--bg-cream)',
                                 border: '1.5px solid var(--amber)',
                                 color: 'var(--brown-dark)',
                                 display: 'flex',
@@ -511,7 +511,7 @@ export default function Projects() {
                             onMouseLeave={e => {
                                 e.currentTarget.style.transform = 'scale(1)'
                                 e.currentTarget.style.boxShadow = '0 4px 10px rgba(92,51,23,0.1)'
-                                e.currentTarget.style.background = 'rgba(250, 245, 233, 0.95)'
+                                e.currentTarget.style.background = 'var(--bg-cream)'
                             }}
                             aria-label="Scroll right"
                         >
@@ -535,8 +535,8 @@ export default function Projects() {
                                     whileHover={{ y: -8, rotate: i % 2 === 0 ? -0.8 : 0.8 }}
                                     style={{
                                         padding: '2.25rem 2rem',
-                                        background: 'rgba(255, 255, 255, 0.92)',
-                                        border: '1.5px solid rgba(139, 80, 40, 0.22)',
+                                        background: 'var(--bg-card)',
+                                        border: '1.5px solid var(--border)',
                                         borderRadius: '16px',
                                         boxShadow: '0 8px 24px rgba(92,51,23,0.06)',
                                         position: 'relative',
@@ -559,7 +559,7 @@ export default function Projects() {
                                     }}
                                     onMouseLeave={e => {
                                         const el = e.currentTarget as HTMLDivElement
-                                        el.style.borderColor = 'rgba(139, 80, 40, 0.22)'
+                                        el.style.borderColor = 'var(--border)'
                                         el.style.boxShadow = '0 8px 24px rgba(92,51,23,0.06)'
                                         const orbit = el.querySelector('.project-orbit-ring') as HTMLDivElement
                                         if (orbit) {
@@ -704,12 +704,12 @@ export default function Projects() {
                                 exit={{ scale: 0.95, y: 20, opacity: 0 }}
                                 transition={{ type: 'spring', damping: 25, stiffness: 220 }}
                                 style={{
-                                    background: '#faf5e9',
+                                    background: 'var(--bg-cream)',
                                     width: '100%',
                                     maxWidth: '880px',
                                     borderRadius: '16px',
                                     boxShadow: '0 20px 50px rgba(44,24,16,0.3)',
-                                    border: '1px solid rgba(139, 80, 40, 0.3)',
+                                    border: '1px solid var(--border-strong)',
                                     position: 'relative',
                                     overflow: 'hidden',
                                     maxHeight: '90vh',
@@ -879,8 +879,8 @@ export default function Projects() {
                                             display: 'flex',
                                             flexDirection: 'column',
                                             justifyContent: 'center',
-                                            background: 'rgba(242, 230, 204, 0.4)',
-                                            border: '1px solid rgba(139, 80, 40, 0.15)',
+                                            background: 'var(--bg-warm)',
+                                            border: '1px solid var(--border)',
                                             borderRadius: '12px',
                                             padding: '1rem',
                                             position: 'relative',
