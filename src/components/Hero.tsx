@@ -360,7 +360,7 @@ export default function Hero() {
 
                             {/* Profile image centered inside the circular solid frame */}
                             <img
-                                src="/My_Photos/photo8.png"
+                                src="/My_Photos/photo2.png"
                                 alt="Mayank Kumar"
                                 style={{
                                     width: '100%',
