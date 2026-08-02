@@ -1,16 +1,21 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const achievements = [
+const achievements: Array<{ icon: string, title: string, desc: string, links?: Array<{name: string, url: string}> }> = [
     {
         icon: '🏆',
-        title: 'GeeksforGeeks Hackathon Winner',
-        desc: 'Won first place in the regional hackathon by building a full-stack mental health focus application in a 36-hour sprint.',
+        title: '2x Hackathon Winner',
+        desc: 'Won first place in competitive hackathons by building a full-stack mental health focus application in a 36-hour sprint.',
     },
     {
         icon: '🎓',
         title: 'DSA 500+ Solved',
-        desc: 'Solved 500+ problems on Leetcode, demonstrating strong problem-solving skills, data structures, and algorithmic efficiency.',
+        desc: 'Solved 500+ problems across platforms. LeetCode Rating: 1496 | CodeChef Rating: 1400 | Codeforces: Rank 410 (Div 2).',
+        links: [
+            { name: 'LeetCode', url: 'https://leetcode.com/u/mayank0185/' },
+            { name: 'CodeChef', url: 'https://www.codechef.com/users/mayank18500' },
+            { name: 'Codeforces', url: 'https://codeforces.com/profile/mayank18500' }
+        ]
     },
     {
         icon: '💻',
@@ -35,7 +40,7 @@ export default function Achievements() {
             background: '#ffffff',
         }}>
             <div className="section-wrapper" ref={ref}>
-                
+
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -109,6 +114,40 @@ export default function Achievements() {
                             }}>
                                 {ach.desc}
                             </p>
+                            {ach.links && (
+                                <div style={{ marginTop: '1rem', display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+                                    {ach.links.map((link, idx) => (
+                                        <a
+                                            key={idx}
+                                            href={link.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            style={{
+                                                fontSize: '0.8rem',
+                                                color: 'var(--amber)',
+                                                textDecoration: 'none',
+                                                fontWeight: 600,
+                                                fontFamily: 'var(--font-mono)',
+                                                borderBottom: '1px solid var(--amber)',
+                                                paddingBottom: '2px',
+                                                transition: 'color 0.2s ease, border-color 0.2s ease'
+                                            }}
+                                            onMouseEnter={e => {
+                                                const el = e.currentTarget as HTMLAnchorElement;
+                                                el.style.color = 'var(--brown-dark)';
+                                                el.style.borderColor = 'var(--brown-dark)';
+                                            }}
+                                            onMouseLeave={e => {
+                                                const el = e.currentTarget as HTMLAnchorElement;
+                                                el.style.color = 'var(--amber)';
+                                                el.style.borderColor = 'var(--amber)';
+                                            }}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    ))}
+                                </div>
+                            )}
                         </motion.div>
                     ))}
                 </div>

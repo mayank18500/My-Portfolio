@@ -2052,6 +2052,52 @@ html.dark-theme .candle-tooltip-arrow {
   border-color: rgba(168, 85, 244, 0.35);
 }
 
+/* Dark mode candle wax */
+html.dark-theme .candle-wax-body {
+  background: linear-gradient(180deg,
+    #3b2854 0%,
+    #2d1b46 15%,
+    #211236 50%,
+    #160a28 80%,
+    #0f051e 100%
+  );
+  box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.8),
+              inset 2px 0 4px rgba(168, 85, 244, 0.2);
+}
+
+html.dark-theme .candle-wax-pool {
+  background: radial-gradient(ellipse at center, rgba(255, 200, 100, 0.3) 0%, rgba(45, 27, 70, 0.8) 60%, #211236 100%);
+}
+
+html.dark-theme .candle-lit .candle-wax-pool {
+  animation: poolGlowDark 2s ease-in-out infinite alternate;
+}
+
+@keyframes poolGlowDark {
+  0%   { background: radial-gradient(ellipse at center, rgba(255, 200, 100, 0.3) 0%, rgba(45, 27, 70, 0.8) 60%, #211236 100%); }
+  100% { background: radial-gradient(ellipse at center, rgba(255, 210, 120, 0.5) 0%, rgba(59, 40, 84, 0.9) 60%, #2d1b46 100%); }
+}
+
+html.dark-theme .candle-drip {
+  background: linear-gradient(180deg, #2d1b46, #160a28);
+}
+
+/* Dark mode candle holder */
+html.dark-theme .candle-holder-rim {
+  background: linear-gradient(180deg, #4b366e, #2d1b46, #1b0a2e);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+
+html.dark-theme .candle-holder-base {
+  background: linear-gradient(180deg, #2d1b46, #1b0a2e, #0e031a);
+  box-shadow: inset 0 -2px 4px rgba(0,0,0,0.5);
+}
+
+html.dark-theme .candle-holder-saucer {
+  background: linear-gradient(180deg, #3d265e, #2d1b46, #1b0a2e);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
 /* Code editor (in About section) dark */
 html.dark-theme .code-editor-body {
   transition: background-color 0.8s ease;
