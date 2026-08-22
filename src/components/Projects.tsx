@@ -31,13 +31,13 @@ const CornerOrnaments = () => (
 
 const projects = [
     {
-        name: 'Brand Redesign',
-        tagline: 'UI/UX · Modern Minimalist',
-        description: 'A personal brand redesign project that showcases modern minimalist aesthetics, combining organic elements with refined layout choices. Fully built with modular styling systems, clean typography, and elegant mobile user experience mockups.',
+        name: 'Kriscap Study Hub',
+        tagline: 'Brand Redesign · UI/UX',
+        description: 'A comprehensive brand redesign for Kriscap Study Hub, showcasing modern minimalist aesthetics. Features a refined layout, clean typography, and a lightweight responsive architecture designed for an optimal educational user experience.',
         tech: ['React', 'Figma', 'TypeScript', 'CSS Modules', 'Vector Design'],
         color: '#3d7a6a',
-        github: 'https://github.com/mayank18500',
-        live: '#',
+        github: 'https://github.com/mayank18500/kriscap-study-hub',
+        live: 'https://www.kriscapeducation.in/',
         volume: 'TOME I',
         features: [
             'Modular styling systems with clean typography & HSL color tokens',
@@ -94,10 +94,42 @@ const projects = [
             'Robust session-based authentication using JWT security tokens'
         ]
     },
+    {
+        name: 'AI Fake News Detection',
+        tagline: 'Machine Learning · NLP',
+        description: 'An AI-powered system designed to detect and classify fake news articles. Built using Natural Language Processing (NLP) techniques and advanced machine learning models to analyze text patterns and verify information credibility.',
+        tech: ['Python', 'Scikit-learn', 'NLP', 'Pandas', 'Flask'],
+        color: '#8b5e3c',
+        github: 'https://github.com/mayank18500/Ai_Based_Fake_News_Detection',
+        live: '#',
+        volume: 'TOME V',
+        features: [
+            'Advanced Natural Language Processing for text feature extraction',
+            'Trained machine learning classification models for high accuracy',
+            'Real-time text analysis and credibility scoring',
+            'Data preprocessing pipelines utilizing Pandas and NumPy'
+        ]
+    },
+    {
+        name: 'Samudra Ledger',
+        tagline: 'Blockchain · Web3',
+        description: 'A decentralized ledger application focusing on transparency and secure data management. Implements robust blockchain principles to ensure immutable records and features a clean interface for interaction and monitoring.',
+        tech: ['Solidity', 'React', 'Web3.js', 'Node.js', 'Smart Contracts'],
+        color: '#4b6b78',
+        github: 'https://github.com/mayank18500/Samudra_Ledger_Public',
+        live: '#',
+        volume: 'TOME VI',
+        features: [
+            'Secure and immutable data storage using blockchain technology',
+            'Smart contract integration for automated transaction processing',
+            'Web3 enabled frontend for seamless wallet connectivity',
+            'Decentralized architecture ensuring high availability and trust'
+        ]
+    }
 ]
 
 const ProjectMockup = ({ projectName }: { projectName: string }) => {
-    if (projectName === 'Brand Redesign') {
+    if (projectName === 'Kriscap Study Hub') {
         return (
             <div style={{
                 display: 'flex',
@@ -301,6 +333,106 @@ const ProjectMockup = ({ projectName }: { projectName: string }) => {
                             Key Runes:
                         </div>
                     </div>
+                </div>
+            </div>
+        )
+    }
+
+    if (projectName === 'AI Fake News Detection') {
+        return (
+            <div style={{
+                background: '#1a1614',
+                border: '1.5px solid #8b5e3c',
+                borderRadius: '10px',
+                padding: '1.25rem',
+                color: '#d4b07a',
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.68rem',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.5rem',
+                boxShadow: 'inset 0 0 15px rgba(0,0,0,0.85), 0 8px 24px rgba(44,24,16,0.15)',
+                overflow: 'hidden',
+                minHeight: '260px'
+            }}>
+                <div style={{ color: '#ecd59f', borderBottom: '1px solid #3d2008', paddingBottom: '0.4rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span>[NLP ANALYSIS ENGINE]</span>
+                    <span style={{ color: '#8b5e3c', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#8b5e3c', display: 'inline-block' }} />
+                        SCANNING
+                    </span>
+                </div>
+                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '0.35rem', overflowY: 'hidden' }}>
+                    <div>&gt; <span style={{ color: '#a0522d' }}>Extracting features...</span></div>
+                    <div>&gt; TEXT_SOURCE: <span style={{ color: '#ecd59f' }}>article_v2.txt</span></div>
+                    <div>&gt; Tokenizing corpus [DONE]</div>
+                    <motion.div animate={{ opacity: [1, 0.4, 1] }} transition={{ repeat: Infinity, duration: 1.2 }} style={{ color: '#d4b07a' }}>
+                        &gt; CLASSIFIER: Running Model (Confidence: 94.2%)
+                    </motion.div>
+                    <div style={{ color: '#ecd59f' }}>&gt; Result: <span style={{ color: '#5a6e3a' }}>VERIFIED</span></div>
+                    <div style={{ color: '#8b5e3c' }}>&gt; metrics: precision=0.92, recall=0.95</div>
+                    <div style={{ animation: 'pulse 1.5s infinite', color: '#fff' }}>&gt; awaiting next input_ _</div>
+                </div>
+            </div>
+        )
+    }
+
+    if (projectName === 'Samudra Ledger') {
+        return (
+            <div style={{
+                background: 'var(--bg-card)',
+                border: '1.5px solid var(--border)',
+                borderRadius: '12px',
+                padding: '1.25rem',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+                fontFamily: 'var(--font-mono)',
+                boxShadow: '0 8px 24px rgba(92,51,23,0.06)',
+                minHeight: '260px'
+            }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid var(--border)', paddingBottom: '0.4rem' }}>
+                    <span style={{ fontSize: '0.67rem', color: '#4b6b78', fontWeight: 'bold' }}>BLOCKCHAIN: SAMUDRA-NET</span>
+                    <span style={{ fontSize: '0.62rem', background: '#4b6b78', color: '#fff', padding: '1px 6px', borderRadius: '3px' }}>SYNCED</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', flex: 1 }}>
+                    {[
+                        { block: '#10442', hash: '0x3f...8a', status: 'CONFIRMED' },
+                        { block: '#10443', hash: '0x7e...2c', status: 'CONFIRMED' },
+                        { block: '#10444', hash: '0x9a...1f', status: 'MINING...' }
+                    ].map((b, idx) => (
+                        <motion.div
+                            key={idx}
+                            animate={b.status === 'MINING...' ? { opacity: [1, 0.5, 1] } : {}}
+                            transition={{ repeat: Infinity, duration: 1.5 }}
+                            style={{
+                                background: 'var(--bg-cream)',
+                                border: '1px solid var(--border)',
+                                borderRadius: '6px',
+                                padding: '0.5rem',
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center'
+                            }}
+                        >
+                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                                <span style={{ fontSize: '0.55rem', color: 'var(--text-muted)' }}>BLOCK {b.block}</span>
+                                <span style={{ fontSize: '0.65rem', color: 'var(--brown-dark)', fontWeight: 'bold' }}>{b.hash}</span>
+                            </div>
+                            <span style={{ 
+                                fontSize: '0.55rem', 
+                                fontWeight: 'bold',
+                                color: b.status === 'CONFIRMED' ? '#5a6e3a' : '#c8762a',
+                                border: `1px solid ${b.status === 'CONFIRMED' ? '#5a6e3a' : '#c8762a'}`,
+                                padding: '2px 4px',
+                                borderRadius: '3px'
+                            }}>
+                                {b.status}
+                            </span>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         )
@@ -862,9 +994,9 @@ export default function Projects() {
                                                 </div>
 
                                                 <div style={{ display: 'flex', gap: '1rem' }}>
-                                                    <a href={activeProject.github} target="_blank" rel="noreferrer" className="parchment-scroll-btn" style={{ fontSize: '0.82rem', padding: '0.6rem 1.2rem', gap: '0.4rem' }}>
+                                                    {/* <a href={activeProject.github} target="_blank" rel="noreferrer" className="parchment-scroll-btn" style={{ fontSize: '0.82rem', padding: '0.6rem 1.2rem', gap: '0.4rem' }}>
                                                         <Github size={14} /> Repository
-                                                    </a>
+                                                    </a> */}
                                                     {activeProject.live && activeProject.live !== '#' && (
                                                         <a href={activeProject.live} target="_blank" rel="noreferrer" className="parchment-scroll-btn" style={{ fontSize: '0.82rem', padding: '0.6rem 1.2rem', gap: '0.4rem' }}>
                                                             <ExternalLink size={14} /> Live View
